@@ -9,18 +9,19 @@
     <title>InfoEdu</title>
 </head>
 <body>
-        <img src="./img/logo.png" alt="logo_mephi" style="margin-left:35%;">
+<div style="border: 100px solid Navy; padding: 30px;">
+        <img src="./img/logo.jpg" alt="logo_mephi" style="margin-left:33%;">
         <div class="container"">
-        <div style=" margin-left: 20%;margin-right: 20%;">
-        <h4 style="margin-left:5%;">Доступ к информационно-образовательному порталу</h4><br>
-        <form  style="margin-left: 20%; margin-right: 20%;" action="student.php" method="GET">
+        <div style=" margin-left: 20%;">
+        <h4>Доступ к информационно-образовательному порталу</h4><br>
+        <form  style="margin-left: 10%; margin-right: 30%;" action="student.php" method="GET">
           <input type="text" class="form-control" name="login"  placeholder="Логин" required><br>
           <input type="password" class="form-control" name="pass"  placeholder="Пароль" required><br>
           <button class="btn btn-primary" type="submit" style="width: 100%;">Войти</button>
         </form>
-        <br><br>
         </div>
         <p class="mt-5 mb-3 text-muted" style="padding-left: 47%;">© 2021</p>
     </div>
+</div>
 </body>
 </html>
