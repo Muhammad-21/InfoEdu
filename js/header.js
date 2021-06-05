@@ -4,10 +4,20 @@ const MyRatingEl = document.querySelector('[data-rating="rating"]');
 const MyCourseEl = document.querySelector('[data-id="course"]');
 const CoursesEl = document.querySelector('[data-course="courses"]');
 const PersonEl = document.querySelector('[data-person="person"]');
+
+const BlockEl = document.querySelector('[data-block="block"]');
+console.log(BlockEl);
 CoursesEl.style.display = 'none';
 PersonEl.style.display = 'block';
 MyRatingEl.style.display = 'none';
+BlockEl.style.display='none';
 RatingEl.onclick = () => {
+    if(document.querySelector('[data-id="loader"]').style.display!='none'){
+    setTimeout(()=>{
+        document.querySelector('[data-id="loader"]').style.display='none'
+        BlockEl.style.display='block';
+    },3500);
+    }
     MyCourseEl.style.background = 'Navy'
     MyCourseEl.style.color = 'white';
     RatingEl.style.background = 'white'

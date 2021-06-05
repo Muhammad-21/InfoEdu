@@ -21,9 +21,9 @@
 </div>
     <div style="margin-left: 10%;margin-top:10%;">
         <h5>Тип занятии</h5>
-        <div><span style="background:#004d40;color:white;"> Лекции </span><a href="" style="color:#004d40;">Основы автоматизированных информационных технологий.</a></div><br>
-        <div><span style="background:#880e4f;color:white;"> Практические занятии </span><a href="" style="color:#880e4f;">Основы автоматизированных информационных технологий.</a></div><br>
-        <div><span style="background:#0d47a1;color:white;"> Лабораторные работы </span><a href="" style="color:#0d47a1;">Основы автоматизированных информационных технологий.</a></div><br>
+        <div><span style="background:#004d40;color:white;"> Лекции </span><a href="lecture.php" style="color:#004d40;">Основы автоматизированных информационных технологий.</a></div><br>
+        <div><span style="background:#880e4f;color:white;"> Практические занятии </span><a href="seminar.php" style="color:#880e4f;">Основы автоматизированных информационных технологий.</a></div><br>
+        <div><span style="background:#0d47a1;color:white;"> Лабораторные работы </span><a href="laba.php" style="color:#0d47a1;">Основы автоматизированных информационных технологий.</a></div><br>
     </div>
     <?php require 'blocks/footer.php' ?>
 </body>

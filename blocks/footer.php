@@ -14,7 +14,7 @@
       <div class="col-6 col-md">
         <h5>О проекте</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-secondary" href="">Цель проекта</a></li>
+          <li><a class="link-secondary" href="./goal.php">Цель проекта</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
