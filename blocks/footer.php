@@ -20,8 +20,8 @@
       <div class="col-6 col-md">
         <h5>Помощь и поддержка</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="link-secondary" href="">Обратная связь</a></li>
-          <li><a class="link-secondary" href="">Контактная информация</a></li>
+          <img style="margin-left:5%;" src="../img/phone.png" width="20"><span style="font-size: 18px;color:navy;"> +7xxx-xxx-xx-xx</span><br>
+          <img style="margin-left:3%;" src="../img/mail.png" width="30"><span style="font-size: 18px;color:navy;"> infoedu@mail.ru</span>
         </ul>
       </div>
     </div>

@@ -46,7 +46,7 @@
             <input type="text" name="text" placeholder="Введите названия темы" size="23" required>
             <input style="margin-left:4%;" type="number" name="number" placeholder="Номер лекции"  min=1 required><br>
             <input type="file" name="file">
-            <input type="submit" value="⏳ Загрузить">
+            <input type="submit"  value="⏳ Загрузить">
         </form>
     </div></div>
     <span style="font-size: 16px;margin-left:15%;color: Navy; ">Добавленные файлы</span><br>
@@ -63,7 +63,9 @@
     {
         $path="../lecture/".$materials['link'];
         ?><div style="border: 1px solid #dfe4e9; margin-left:15%;margin-right:15%;padding:1%;color:white;">
-        <a class="btn aa" href="<?php echo $path?>"><?php echo $materials['name_lesson'].' '.$materials['work_name']?></a><br></div><?php
+        <a style="border:0px;" class="btn-outline-success btn" href="<?php echo $path?>"><?php echo $materials['name_lesson'].' '.$materials['work_name']?></a>
+        <input data-id="delete" class="btn btn-outline-danger" type="submit" value="удалить"><br>
+        </div><?php
     }
     while($materials= $result -> fetch_assoc());
     $mysql->close();
@@ -74,9 +76,4 @@
     <br><br></div>
 <?php require '../blocks/footer.php' ?>
 </body>
-<style>
-    a.aa:hover{
-        color: green;
-    }
-</style>
 </html>
