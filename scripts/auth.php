@@ -20,6 +20,7 @@ $course_array = array();
 $res_teach=$mysql->query("SELECT * FROM `teacher` WHERE `id_user`='$id_user'");
 $teacher= $res_teach -> fetch_assoc();
 $id_teacher = $teacher['id_teacher'];
+$_SESSION['id_teacher']=$id_teacher;
 //проверка данных на правильность
 if(count($user) == 0){
     $_SESSION['nous'] = 1;
