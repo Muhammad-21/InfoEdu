@@ -56,14 +56,15 @@
     FROM material
     JOIN work on material.id_work=work.id_work
     LEFT JOIN lesson on material.id_lesson = lesson.id_lesson
+    WHERE work.work_type='лекция'
     ORDER BY material.id_lesson");
     $materials= $result -> fetch_assoc();
     if(count($materials)>0){
     do
     {
         $path="../lecture/".$materials['link'];
-        ?><div style="border: 1px solid #dfe4e9; margin-left:15%;margin-right:15%;padding:1%;color:white;">
-        <a style="border:0px;" class="btn-outline-success btn" href="<?php echo $path?>"><?php echo $materials['name_lesson'].' '.$materials['work_name']?></a>
+        ?><div data-id="del" style="border: 1px solid #dfe4e9; margin-left:15%;margin-right:15%;padding:1%;color:white;">
+        <a data-id = "link" style="border:0px;" class="btn-outline-success btn" href="<?php echo $path?>"><?php echo $materials['name_lesson'].' '.$materials['work_name']?></a>
         <input data-id="delete" class="btn btn-outline-danger" type="submit" value="удалить"><br>
         </div><?php
     }
@@ -75,5 +76,16 @@
     ?>
     <br><br></div>
 <?php require '../blocks/footer.php' ?>
+<script>
+            const deleteEl = document.querySelectorAll('[data-id="delete"]');
+            const delEl = document.querySelectorAll('[data-id="del"]');
+            const linkEl = document.querySelectorAll('[data-id="link"]');
+            for(let i=0;i<=deleteEl.length-1;i++){
+                deleteEl[i].onclick =()=> {
+                   delEl[i].remove();
+                   location.href = "delete_lecture.php?link=" + linkEl[i].href;
+                }
+            }
+</script>
 </body>
 </html>

@@ -21,7 +21,7 @@
         <h5>Помощь и поддержка</h5>
         <ul class="list-unstyled text-small">
           <img style="margin-left:5%;" src="../img/phone.png" width="20"><span style="font-size: 18px;color:navy;"> +7xxx-xxx-xx-xx</span><br>
-          <img style="margin-left:3%;" src="../img/mail.png" width="30"><span style="font-size: 18px;color:navy;"> infoedu@mail.ru</span>
+          <img style="margin-left:5%;" src="../img/mail.png" width="20"><span style="font-size: 18px;color:navy;"> infoedu@mail.ru</span>
         </ul>
       </div>
     </div>
