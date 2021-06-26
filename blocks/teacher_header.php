@@ -4,7 +4,7 @@
     <nav class="my-2 my-md-0 me-md-3" >
     <a class="btn" style="color: white;" href="./teacher.php">Главная</a>
     <div  data-id="course" class="btn"  style="color: white;">Курсы</div>
-    <a class="btn" style="color: white; position:absolute; margin-left:80%; bottom:90%;" href="/">Выход</a>
+    <a class="btn" style="color: white; position:absolute; margin-left:80%; bottom:90%;" href="../exit.php">Выход</a>
     </nav>
 </div>
 </div>

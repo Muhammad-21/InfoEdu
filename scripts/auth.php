@@ -1,5 +1,6 @@
 <?php
 session_start();
+header('Content-Type: text/html; charset= utf-8');
 //логин и пароль из ввода
 $login=filter_var(trim($_GET['login']),FILTER_SANITIZE_STRING);
 $pass=filter_var(trim($_GET['pass']),FILTER_SANITIZE_STRING);
@@ -11,6 +12,15 @@ $user= $result -> fetch_assoc();
 
 //данные пользователя
 $id_user = $user['id_user'];
+if($_SESSION){
+    ?><h1 style="margin-left:30%; margin-top:20%; color:navy;">Выйдите из другого аккаунта!</h1><br>
+    <a  style="margin-left:65%; margin-top:30%;font-size:30px; color:red;"href="/">назад</a>
+    <?php
+    exit();
+}
+$student=$mysql->query("SELECT * FROM `student` WHERE `id_user`='$id_user'");
+$student_id= $student -> fetch_assoc();
+$_SESSION['id_student']=$student_id['id_student'];
 $_SESSION['id_user']=$id_user;
 $_SESSION['user_name']=$user['name'];
 $_SESSION['user_last_name']=$user['last_name'];

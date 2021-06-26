@@ -5,12 +5,12 @@ $text=filter_var(trim($_POST['text']),FILTER_SANITIZE_STRING);
 $number=filter_var(trim($_POST['number']),FILTER_SANITIZE_STRING);
 $material_type=filter_var(trim($_POST['material_type']),FILTER_SANITIZE_STRING);
 if($material_type=='Задания для студентов'){
-    $work_type='дз_семинар';
+    $work_type='дз_лаба';
 }elseif($material_type=='Материал для подготовки'){
-    $work_type='семинар';
+    $work_type='лаба';
 }else{
     $_SESSION['file_status']=-11;
-    header('Location: seminar.php');
+    header('Location: laba.php');
     exit();
 }
 // echo $_FILES['file']['size'].'<br>';
@@ -20,30 +20,30 @@ $id_teacher=$_SESSION['id_teacher'];
 $name1=time().$_FILES['file']['name'];
 $name=iconv("utf-8", "cp1251", $name1);
 $size=$_FILES['file']['size'];
-$lecture="Семинар №".$number;
+$lecture="Лабораторная №".$number;
 if(strlen($text)>60){
     $_SESSION['file_status']=-2;
-    header('Location: seminar.php');
+    header('Location: laba.php');
 }elseif($number>7 || $number<1){
     $_SESSION['file_status']=2;
-    header('Location: seminar.php');
+    header('Location: laba.php');
     exit();
 }
 if($size>1048576*11){
     $_SESSION['file_status']=-1;
-    header('Location: seminar.php');
+    header('Location: laba.php');
     exit();
 }
-if(move_uploaded_file($_FILES['file']['tmp_name'],'../seminar/'.$name)){
+if(move_uploaded_file($_FILES['file']['tmp_name'],'../laba/'.$name)){
     $_SESSION['file_status']=1;
     $mysql=new mysqli('localhost','root','','InfoEdu');
-    $mysql->query("INSERT INTO `work`(`work_name`, `work_type`,`assessmeent`,`comment`, `id_student`,`id_teacher`) VALUES('$text','$work_type','-5','-','84','$id_teacher')");
+    $mysql->query("INSERT INTO `work`(`work_name`, `work_type`,`assessmeent`, `comment`,`id_student`,`id_teacher`) VALUES('$text','$work_type','-5','-','84','$id_teacher')");
     $result=$mysql->query("SELECT * FROM `work` WHERE 1 order by `id_work` desc limit 1");
     $last_id= $result -> fetch_assoc();
     //id работы
     $id_last=$last_id['id_work'];
 
-    $result1=$mysql->query("SELECT * FROM lesson WHERE type_lesson='Семинар' AND name_lesson='$lecture'");
+    $result1=$mysql->query("SELECT * FROM lesson WHERE type_lesson='Лабораторная' AND name_lesson='$lecture'");
     $lesson_id= $result1 -> fetch_assoc();
     //id занятии
     $id_lesson=$lesson_id['id_lesson'];
@@ -55,9 +55,9 @@ if(move_uploaded_file($_FILES['file']['tmp_name'],'../seminar/'.$name)){
     $id_material=$material_id['id_material'];
     $mysql->query("INSERT INTO `has`(`id_material`, `id_lesson`) VALUES('$id_material','$id_lesson')");
     $mysql->close();
-    header('Location: seminar.php');
+    header('Location: laba.php');
 }else {
     $_SESSION['file_status']=0;
-    header('Location: seminar.php');
+    header('Location: laba.php');
 }
 ?>

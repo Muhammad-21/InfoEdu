@@ -1,6 +1,7 @@
 <?php
   session_start();
-  echo $_NOUS;
+  // echo $_NOUS;
+  // session_unset();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -22,7 +23,7 @@
         <?php 
         if ($_SESSION['nous'] == 1){
           echo "<strong>Неверное имя пользователя и пароль.</strong><br>";
-          $_SESSION['nous'] = "";
+          session_unset();
         }
         ?>
         </div>

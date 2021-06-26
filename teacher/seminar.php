@@ -86,7 +86,7 @@
     FROM material
     JOIN work on material.id_work=work.id_work
     LEFT JOIN lesson on material.id_lesson = lesson.id_lesson
-    WHERE work.work_type='дз'
+    WHERE work.work_type='дз_семинар'
     ORDER BY material.id_lesson");
     $dz= $result1 -> fetch_assoc();
     if(count($dz)>0){
