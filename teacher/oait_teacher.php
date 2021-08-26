@@ -16,11 +16,13 @@ session_start();
     <a class="p-2 text-dark" href="./teacher.php" style="text-decoration: none;"><span style="color: white; font-size: 25px; font-style:italic">InfoEdu</span></a>
     <nav class="my-2 my-md-0 me-md-3" >
     <a class="btn" style="color: white;" href="./teacher.php">Главная</a>
+    <div  data-id="student" class="btn"  style="color: white;">Студенты</div>
     <a class="btn" style="color: white; position:absolute; margin-left:75%; bottom:90%;" href="teacher.php">Вернуться назад</a>
     </nav>
 </div>
 </div>
-    <div style="margin-left: 10%;margin-top:10%;">
+  <img data-id="loader" src="../img/loading.gif" style="width:40%; margin-left:28%; display:none;"alt="loader">
+    <div data-id="type_lesson" style="margin-left: 10%;margin-top:10%;">
         <h5>Тип занятии</h5>
         <?php if($_SESSION['teacher_post'] == "Лектор")
         {
@@ -32,6 +34,27 @@ session_start();
         }
         ?>
     </div>
+
+    <!-- личный кабинет студентов -->
+    <div data-student="students"><br>
+        <?php 
+          $mysql=new mysqli('localhost','root','','InfoEdu');
+          $res=$mysql->query("SELECT * From student JOIN user on student.id_user=user.id_user");
+          $list=$res->fetch_assoc();
+            do{ if($list['id_user']!=25){?>
+              <div style="border: 1px solid #dfe4e9;padding:2%; color:navy; margin-left:10%;margin-right:10%;">
+                <img style="border-radius:100px; box-shadow:0 0 15px #666; width:80px;" src="<?php echo '../img/users/'.$list['photo_link']?>" style="width:6%;"alt="фотография профиля">
+                  <a target="_blank" href="../account/accounts.php?user_id=<?php echo $list['id_user'];?>" style="color: navy;"> <?php echo $list['last_name'].' '.$list['name'].' '.$list['middle_name'].'</a>'.' '.'<a class="btn-lg" style="color: white;  box-shadow:0 0 15px #666; border-radius:100px; background-color:navy;" href="../mail/mail.php?user_id='.$list['id_user'].'">'.'&#9993</a>'.'<br>';}?>
+              </div>
+              <?php
+            }
+            while ($list=$res->fetch_assoc());
+          $mysql->close();
+        ?>
+    </div>
+
+
     <?php require '../blocks/footer.php' ?>
+    <script src="../js/student.js"></script>
 </body>
 </html>

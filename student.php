@@ -1,5 +1,16 @@
 <?php
 session_start();
+$user_id=$_SESSION["id_user"];
+if($_SESSION['img_status']==1){
+    $err="Тип файла несоответсвует";
+    $e=1;//помощьник
+}elseif($_SESSION['img_status']==-1){
+    $err="Произошла неизвестная ошибка";
+    $e=1;
+}
+$mysql=new mysqli('localhost','root','','InfoEdu');
+$res=$mysql->query("SELECT * From user WHERE user.id_user=$user_id");
+$mail=$res->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -16,12 +27,22 @@ session_start();
 
     <!-- Информация о студенте -->
     <div data-person="person">
-        <img src="<?php if($_SESSION['user_sex'] == '1'){
-            echo "./img/person.jpg";
-        }else{
-            echo "./img/personw.jpg";
-        }?>" alt="person" width="100px" style=" margin-left: 24%; margin-top:5%;">
-        <div style="color: Navy; margin-left:33%; margin-top:-7%; position:absolute;">
+    <form method="POST" action="../load_img.php" enctype="multipart/form-data" style="margin-left: 24%; margin-top:5%;">
+            <label class="custom-file-upload">
+                <input name="image" style="display:none;" type="file" onchange="form.submit()"/>
+                <img src="<?php echo '../img/users/'.$mail['photo_link']?>" alt="person" title="выберите фотографию" width="120px" style="border-radius:100px; box-shadow:0 0 15px #666;">
+            </label>
+        </form>
+        <?php if($mail['photo_link']!=='personw.jpg' && $mail['photo_link']!=='person.jpg'){?>
+            <a class="btn-danger btn" style="margin-left:22%" href="../delete_img.php?link=<?php echo $mail['photo_link'];?>">удалить фотографию</a>
+        <?php }elseif($e==1){
+            ?><div style="margin-left:21%; color:red"><?php echo $err;?></div><?php
+            $err='';
+            $e='';
+            $_SESSION['img_status']='end';
+        }?>
+
+        <div style="color: Navy; margin-left:38%; margin-top:-9%; position:absolute;">
             <div>Имя: <?php echo $_SESSION['user_name']?></div>
             <div>Фамилия: <?php echo $_SESSION['user_last_name']?></div>
             <div>Отчество: <?php echo $_SESSION['user_middle_name']?></div>

@@ -39,7 +39,7 @@
         if($dz['assessmeent']==-1){
             ?>
             <div style="border: 1px solid #dfe4e9;padding:1%; color:navy;">
-            <div style="border:0px;" class="btn-outline-primary btn"><?php echo $dz['name'].' '.$dz['last_name'].' '.$dz['middle_name']?></div>
+            <a href="../account/accounts.php?user_id=<?php echo $dz['id_user'];?>" ><div style="border:0px;" class="btn-outline-primary btn"><?php echo $dz['name'].' '.$dz['last_name'].' '.$dz['middle_name']?></div></a>
             <a  style="border:0px;" class="btn-outline-primary btn" href="<?php echo $dz_path?>"><?php echo "Решение:".' '.$dz['work_name']?></a><br>
             <textarea  data-id="message" class="form-control" placeholder="Введите ваши замечания"></textarea>
             <input data-id="delete" style="margin-left:72%;" name="<?php echo $dz['id_work']?>" class="btn btn-outline-danger" type="submit" value="отправить на доработку"><br><br>
