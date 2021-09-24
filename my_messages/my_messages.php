@@ -50,10 +50,15 @@ $res= $sql -> fetch_assoc();
             $user=$sql1 -> fetch_assoc();
             ?>
             <br>
-                <div style="border: 1px solid #dfe4e9;padding:2%; color:navy;margin-right:20%;">
-                    <img style="border-radius:100px; box-shadow:0 0 15px #666; width:60px;" src="<?php echo '../img/users/'.$user['photo_link']?>" style="width:6%;"alt="фотография профиля">
-                        <a target="_blank" href="../mail/mail.php?user_id=<?php echo $user['id_user'].'&name='.$user['name']?>" style="color: navy;"> <?php echo $user['last_name'].' '.$user['name'].' '.$user['middle_name'].'</a>'.' '.'<br>';?>
-                </div>
+            
+                <a  target="_blank" style="width:80%;" class="btn-outline-primary btn" href="../mail/mail.php?user_id=<?php echo $user['id_user'].'&name='.$user['name']?>">
+                    <!-- <div class="btn-outline" style="border: 1px solid #dfe4e9;padding:2%; color:navy;margin-right:20%;"> -->
+                        <div style="margin-right:60%;">
+                            <img style="border-radius:100px; box-shadow:0 0 15px #666; width:50px;" src="<?php echo '../img/users/'.$user['photo_link']?>" alt="фотография профиля">
+                            <?php echo $user['last_name'].' '.$user['name'].' '.$user['middle_name'].' '.'<br>';?>
+                        </div>
+                </a><br>
+               
             <?php
         }
     ?>
