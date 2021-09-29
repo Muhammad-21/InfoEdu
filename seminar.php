@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'exit/exit.php';
 $id_st=$_SESSION['id_student'];
 ?>
 <!DOCTYPE html>

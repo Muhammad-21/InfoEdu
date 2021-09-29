@@ -1,5 +1,6 @@
 <?php
 session_start();
+require '../exit/exit.php';
 if($_SESSION['id_student']){
     $path='../student.php';
 }else{

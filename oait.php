@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'exit/exit.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">

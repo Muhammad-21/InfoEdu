@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'exit/exit.php';
 $user_id=$_SESSION["id_user"];
 if($_SESSION['img_status']==1){
     $err="Тип файла несоответсвует";

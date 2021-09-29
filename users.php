@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'exit/exit.php';
 $user_id=$_SESSION["id_user"];
 ?>
 <!DOCTYPE html>
@@ -21,8 +22,8 @@ $user_id=$_SESSION["id_user"];
         $us=$results->fetch_assoc();
             do{ if($us['id_user']!=25 && $us['id_user']!=$user_id){?>
               <div style="border: 1px solid #dfe4e9;padding:2%; color:navy; margin-left:10%;margin-right:10%;">
-                <img style="border-radius:100px; box-shadow:0 0 15px #666; width:80px;" src="<?php echo '../img/users/'.$us['photo_link']?>" style="width:6%;"alt="фотография профиля">
-                  <a target="_blank" href="../account/accounts.php?user_id=<?php echo $us['id_user'];?>" style="color: navy;"> <?php echo $us['last_name'].' '.$us['name'].' '.$us['middle_name'].'</a>'.' '.'<a class="btn-lg" style="color: white;background-color:navy; box-shadow:0 0 15px #666; border-radius:100px;" target="_blank" href="../mail/mail.php?user_id='.$us['id_user'].'">'.'&#9993</a>'.'<br>';}?>
+                <img style="border-radius:100px; box-shadow:0 0 15px #666; width:60px;" src="<?php echo '../img/users/'.$us['photo_link']?>" alt="фотография профиля">
+                  <a href="../account/accounts.php?user_id=<?php echo $us['id_user'];?>" style="color: navy;"> <?php echo $us['last_name'].' '.$us['name'].' '.$us['middle_name'].'</a>'.' '.'<a class="btn-lg" style="color: white;background-color:navy; box-shadow:0 0 15px #666; border-radius:100px;" href="../mail/mail.php?user_id='.$us['id_user'].'">'.'&#9993</a>'.'<br>';}?>
               </div>
               <?php
             }

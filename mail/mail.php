@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require '../exit/exit.php';
 $id_recipient=filter_var(trim($_GET['user_id']),FILTER_SANITIZE_STRING);
 $name=filter_var(trim($_GET['name']),FILTER_SANITIZE_STRING);
 $_SESSION['recipient_name']=$name;
