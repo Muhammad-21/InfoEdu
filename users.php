@@ -25,10 +25,24 @@ $user_id=$_SESSION["id_user"];
         $us=$results->fetch_assoc();
             do{ if($us['id_user']!=25 && $us['id_user']!=$user_id){
               $id = $us['id_user'];
+              
               $co = $mysql->query("SELECT * FROM `teacher` WHERE `id_user` = '$id'");
-              $count = $co -> fetch_assoc();
-              if($count){
+              $count_teacher = $co -> fetch_assoc();
+
+              
+              if($count_teacher){
                 $type = 'преподаватель';
+                $color = 'badge-dark badge';
+              }else{
+                $co_stud = $mysql->query("SELECT `group`.`group_number` 
+                                            FROM `group` 
+                                            JOIN `student` on `group`.`id_group`=`student`.`id_group`
+                                            WHERE `student`.`id_user`='$id'");
+                $count_student = $co_stud -> fetch_assoc();
+                if($count_student){
+                  $type = 'Студент группы '.$count_student['group_number'];
+                  $color = 'badge-light badge';
+                }                
               }
         ?>
               <div style="display: grid; grid-template-columns:70px 300px 50px;border: 1px solid #dfe4e9;padding:1%; color:navy; margin-left:15%;margin-right:15%;">
@@ -37,7 +51,7 @@ $user_id=$_SESSION["id_user"];
                   </div>
                   <div>
                     <a href="../account/accounts.php?user_id=<?php echo $us['id_user'];?>" style="color: navy;"> <?php echo $us['last_name'].' '.$us['name'].' '.$us['middle_name']?></a><br>
-                    <div class="badge-secondary badge" style="font-size:10px;"><?php echo $type;$type='';?></div>
+                    <div class="<?php echo $color;?>" style="font-size:10px;"><?php echo $type;$type='';?></div>
                   </div>
                   <a class="btn-lg" style="color: white;background-color:navy; box-shadow:0 0 15px #666; border-radius:100px;padding:30%;" href="../mail/mail.php?user_id=<?php echo $us['id_user'];?>">&#9993</a>
               </div><br>
