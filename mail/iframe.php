@@ -12,8 +12,8 @@ session_start();
     </script>
 </head>
 <body>
-    
-<!-- <iframe  style="border-radius:10px; box-shadow:0 0 15px #666;"  width="420" height="450" src="send_message.php">Чат</iframe> -->
+<div data-id='message_list'>
+
 <?php
 $id_sender=$_SESSION['id_user'];
 $id_recipient=$_SESSION['id_recipient'];
@@ -31,10 +31,10 @@ $res= $sql -> fetch_assoc();
 do{
     if($res['id_sender']==$id_sender && $res['id_recipient']==$id_recipient){
     ?>
-    <div align="right" style="margin:3%">
+    <div data-id="block" align="right" style="margin:3%">
         <div class="badge-dark badge" style="font-size:9px;"><?php echo $res['time']?> </div>
         <a class="badge" target="_blank" href="../account/accounts.php?user_id=<?php echo $id_sender;?>" style="font-size:14px;color:navy;"><?php echo $_SESSION['user_name'];?></a>
-        <div style="word-wrap:normal; width: 300px; font-size:smaller;"><?php echo $res['message']?> </div>
+        <div title="отметить" id=<?php echo $res['id']?> data-id="message" style="word-wrap:normal; width: 300px; font-size:smaller;"><?php echo $res['message']?> </div>
     </div>
     <?php
     }elseif($res['id_sender']==$id_recipient && $res['id_recipient']==$id_sender){
@@ -49,8 +49,7 @@ do{
 }
 while($res=$sql -> fetch_assoc()); 
 ?>
+</div>
 </body>
-<script>
-    window.scrollTo(0, document.body.scrollHeight);
-</script>
+<script src="../js/message/delete.js"></script>
 </html>

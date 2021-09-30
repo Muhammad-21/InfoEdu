@@ -33,13 +33,11 @@ if($_SESSION['id_student']){
 
 <div style="margin-left:30%;padding:1%;" >
 <iframe style="border-radius:10px; box-shadow:0 0 15px #666;"  width="440" height="480" name='chatWindow' data-id='chatWindow' src='iframe.php' >Чат</iframe>
-<form data-click="clear" action='iframe.php' method='post' target='chatWindow'>
+<form onsubmit="this.submit(); this.reset(); return false;" data-click="clear" action='iframe.php' method='post' target='chatWindow'>
     <input style="margin-left:1%;" type='text' name='message' size="42" placeholder="  Напишите сообщение...">
     <button  class="btn-primary">отправить</button>
 </form>
 </div>
 <?php require '../blocks/footer.php' ?>
 </body>
-<script>
-</script>
 </html>
