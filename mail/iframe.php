@@ -27,9 +27,9 @@ if(isset($_POST['message']) && $_POST['message']!=''){
 }
 $sql=$mysql->query("SELECT * FROM `messages` order by `id`");
 $res= $sql -> fetch_assoc();
-
+$mess_num = 0;//счётчик для кол-во сообщений
 do{
-    if($res['id_sender']==$id_sender && $res['id_recipient']==$id_recipient){
+    if($res['id_sender']==$id_sender && $res['id_recipient']==$id_recipient){ $mess_num++;
     ?>
     <div data-id="block" align="right" style="margin:3%">
         <div class="badge-dark badge" style="font-size:9px;"><?php echo $res['time']?> </div>
@@ -37,7 +37,7 @@ do{
         <div title="отметить" id=<?php echo $res['id']?> data-id="message" style="word-wrap:normal; width: 300px; font-size:smaller;"><?php echo $res['message']?> </div>
     </div>
     <?php
-    }elseif($res['id_sender']==$id_recipient && $res['id_recipient']==$id_sender){
+    }elseif($res['id_sender']==$id_recipient && $res['id_recipient']==$id_sender){ $mess_num++;
     ?>
    <div align="left" style="margin:3%">
         <a class="badge" target="_blank" href="../account/accounts.php?user_id=<?php echo $id_recipient;?>" style="font-size:14px;color:navy;"><?php echo $_SESSION['recipient_name'];?></a>
@@ -47,9 +47,17 @@ do{
    <?php
     }
 }
-while($res=$sql -> fetch_assoc()); 
+while($res=$sql -> fetch_assoc());
+$mysql->close();
+if($mess_num == 0){
+    ?>
+    <br><br><br><br><br><br><br>
+    <strong style="margin-left:27%; color:navy;">Cообщений пока нет...</strong>
+    <?php
+} 
 ?>
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="../js/message/delete.js"></script>
 </html>

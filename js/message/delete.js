@@ -29,7 +29,16 @@ mesEl.forEach((el,index) => {
                 numMesEl.textContent=next+' сообщение';
 
                 delButEl.onclick = () => {
-                    alert(messBox);
+                    // alert(messBox);
+                    const json_messBox = JSON.stringify(messBox);
+                    $.ajax({
+                        url: '../mail/delete_message.php',
+                        type: "POST",
+                        data: {messages:json_messBox},
+                        success: function(){
+                            location.href='../mail/iframe.php';
+                        },
+                    });
                 }
             }else{
                 next++;
