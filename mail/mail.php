@@ -3,13 +3,20 @@ session_start();
 require '../exit/exit.php';
 $id_recipient=filter_var(trim($_GET['user_id']),FILTER_SANITIZE_STRING);
 $name=filter_var(trim($_GET['name']),FILTER_SANITIZE_STRING);
-$_SESSION['recipient_name']=$name;
-$_SESSION['id_recipient']=$id_recipient;
+if($name and $id_recipient){
+    $_SESSION['recipient_name']=$name;
+    $_SESSION['id_recipient']=$id_recipient;
+}else{
+    $_SESSION['recipient_name']=null;
+    $_SESSION['id_recipient']=null;
+    $dis = 'disabled';
+}
 if($_SESSION['id_student']){
     $path='../student.php';
 }else{
     $path='../teacher/teacher.php';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -38,88 +45,67 @@ if($_SESSION['id_student']){
         <?php
         $id_sender=$_SESSION['id_user']; 
         $mysql=new mysqli('localhost','root','','InfoEdu');
-        $sql=$mysql->query("SELECT * FROM messages WHERE id_sender =$id_sender or id_recipient=$id_sender");
+        $sql=$mysql->query("SELECT * FROM messages WHERE id_sender =$id_sender or id_recipient=$id_sender ORDER BY id DESC");
         $res= $sql -> fetch_assoc();
-
+        $all_messages = [];
         $messages =[];
-
+    
         do{
-            // echo count($messages);
-            if(count($messages) == 0 ){
-                array_push($messages,[
-                    'id' => $res['id'],
-                    'id_sender' => $res['id_sender'],
-                    'id_recipient' => $res['id_recipient'], 
-                    'message' => $res['message'],
-                    'time' => $res['time']
-                ]);  
-            }else{
-                for($i=0;$i<count($messages);$i++){
-                    if($messages[$i]['id_sender']==$res['id_sender'] and $messages[$i]['id']<=$res['id'] and $messages[$i]['id_recipient'] == $res['id_recipient']){
-                        $messages[$i] = [
-                            'id' => $res['id'],
-                            'id_sender' => $res['id_sender'],
-                            'id_recipient' => $res['id_recipient'], 
-                            'message' => $res['message'],
-                            'time' => $res['time']
-                        ];
-                    }elseif($messages[$i]['id_recipient']==$res['id_sender'] and $messages[$i]['id']<=$res['id'] and $messages[$i]['id_sender'] == $res['id_recipient'] ){
-                        $messages[$i] = [
-                            'id' => $res['id'],
-                            'id_sender' => $res['id_sender'],
-                            'id_recipient' => $res['id_recipient'], 
-                            'message' => $res['message'],
-                            'time' => $res['time']
-                        ];     
-                    }else{
-                        array_push($messages,[
-                            'id' => $res['id'],
-                            'id_sender' => $res['id_sender'],
-                            'id_recipient' => $res['id_recipient'], 
-                            'message' => $res['message'],
-                            'time' => $res['time']
-                        ]);  
-                    }    
-                }
-            } 
+            array_push($all_messages,$res);
         }
-        while($res=$sql -> fetch_assoc());
-        // print_r($messages);
+        while ($res= $sql -> fetch_assoc());
+    
+        $summ_keys = [];
+        for($j=0; $j<count($all_messages); $j++){
+            if(!$summ_keys[$all_messages[$j]['id_sender']+$all_messages[$j]['id_recipient']]){
+                $messages[] = [
+                    'id' => $all_messages[$j]['id'],
+                    'id_sender' => $all_messages[$j]['id_sender'],
+                    'id_recipient' => $all_messages[$j]['id_recipient'], 
+                    'message' => $all_messages[$j]['message'],
+                    'time' => $all_messages[$j]['time']
+                ]; 
+                $summ_keys[$all_messages[$j]['id_sender']+$all_messages[$j]['id_recipient']]=1;
+            }
+        }
+        for($i=0;$i<count($messages);$i++){ 
+                if($messages[$i]['id_sender'] == $_SESSION['id_user']){
+                    $id_user=$messages[$i]['id_recipient'];
+                }else{
+                    $id_user=$messages[$i]['id_sender'];
+                }
+                $sqll=$mysql->query("SELECT * FROM user WHERE id_user=$id_user");
+                $result= $sqll -> fetch_assoc();
+                if($id_recipient != $id_user){
+                    $class = 'btn-outline-dark btn';
+                }else{
+                    $class = 'btn-dark btn';
+                }
         ?>
         <div style="border: 1px solid black;"></div>
-        <button class="btn-outline-dark btn" style="border: none;">
-            <div style="display: grid; grid-template-columns:50px 350px;" >
+        <button onclick="location.href='../mail/mail.php?user_id=<?php echo $id_user.'&name='.$result['name']?>'" class="<?php echo $class ?>" style="border: none;">
+            <div  style="display: grid; grid-template-columns:50px 350px;" >
             <div>
-                <img style="border-radius:100px; width:50px;" src="../img/users/112.jpg" alt="фотография профиля">
+                <img style="border-radius:100px; width:50px;" src="../img/users/<?php echo $result['photo_link'];?>" alt="фотография профиля">
             </div>
-            <div>
-                <strong><?php echo 'Махмудов Мухаммад Абдумаджидович';?></strong>
-                <div><?php echo 'Сообщение';?></div>
+            <div align="left">
+                <strong style="margin-left: 5%;"><?php echo $result['last_name'].' '.$result['name'].' '.$result['middle_name'];?></strong>
+                <div style="margin-left: 6%; font-size:15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?php echo $messages[$i]['message'];?></div>
+                <div style="margin-left: 70%;font-size:10px;" class="badge-dark badge"><?php echo $messages[$i]['time'];?></div>
             </div>
             </div>
         </button>
         <div style="border: 1px solid black;"></div>
-        <button class="btn-outline-dark btn" style="border: none;">
-            <div style="display: grid; grid-template-columns:50px 350px" >
-            <div>
-                <img style="border-radius:100px; width:50px;" src="../img/users/112.jpg" alt="фотография профиля">
-            </div>
-            <div>
-                <strong><?php echo 'Махмудов Мухаммад Абдумаджидович';?></strong>
-                <div><?php echo 'Сообщение';?></div>
-            </div>
-            </div>
-        </button>
-        <div style="border: 1px solid black;"></div>
+        <?php } ?>
         </div>
     </div>
 
     <!-- блок чата -->
     <div style="margin-left:15px;"><br>
-        <iframe  width="570" height="480" name='chatWindow' data-id='chatWindow' src='iframe.php' >Чат</iframe>
+        <iframe  width="570" height="480" name='chatWindow' id="chatWindow" data-id='chatWindow' src='iframe.php' >Чат</iframe>
         <form onsubmit="this.submit(); this.reset(); return false;" data-click="clear" action='iframe.php' method='post' target='chatWindow'>
             <input style="margin-left:1%;" type='text' name='message' size="62" placeholder="  Напишите сообщение...">
-            <button type="button" class="btn-dark">отправить</button>
+            <button type="button" class="btn-dark" <?php echo $dis;?>>отправить</button>
         </form>
     </div>
 
@@ -128,5 +114,6 @@ if($_SESSION['id_student']){
     </div>
 
 </div>
+<script src="../js/message/click_btn.js" ></script>
 </body>
 </html>

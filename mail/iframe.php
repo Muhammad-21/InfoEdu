@@ -17,6 +17,13 @@ session_start();
 <?php
 $id_sender=$_SESSION['id_user'];
 $id_recipient=$_SESSION['id_recipient'];
+if($id_recipient == null){
+    ?>
+    <br><br><br><br><br><br><br><br>
+    <strong class="badge-dark" style="border-radius:15%;margin-left:30%; color:white;"> Выберите, чат с сообщениями </strong>
+    <?php
+    exit;
+}
 $mysql=new mysqli('localhost','root','','InfoEdu');
 if(isset($_POST['message']) && $_POST['message']!=''){
     $message=filter_var(trim($_POST['message']),FILTER_SANITIZE_STRING);
@@ -34,7 +41,7 @@ do{
     <div data-id="block" align="right" style="margin:3%">
         <div class="badge-dark badge" style="font-size:9px;"><?php echo $res['time']?> </div>
         <a class="badge" target="_blank" href="../account/accounts.php?user_id=<?php echo $id_sender;?>" style="font-size:14px;color:navy;"><?php echo $_SESSION['user_name'];?></a>
-        <div title="отметить" id=<?php echo $res['id']?> data-id="message" style="word-wrap:normal; width: 300px; font-size:smaller;"><?php echo $res['message']?> </div>
+        <div title="отметить" id=<?php echo $res['id']?> data-id="message" style="word-wrap:normal; width: 300px; font-size:smaller;cursor:pointer;"><?php echo $res['message']?> </div>
     </div>
     <?php
     }elseif($res['id_sender']==$id_recipient && $res['id_recipient']==$id_sender){ $mess_num++;

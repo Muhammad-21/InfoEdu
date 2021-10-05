@@ -6,7 +6,7 @@
     <a target="_blank" class="btn" style="color: white;" href="../users.php">Пользователи</a>
     <div  data-id="rating" class="btn"   style="color: white;">Рейтинг</div>
     <div  data-id="course" class="btn"   style="color: white;">Мои курсы</div>
-    <a class="btn" style="color: white;" href="../my_messages/my_messages.php">Сообщения</a>
+    <a class="btn" style="color: white;" href="../mail/mail.php">Сообщения</a>
     <a class="btn" style="color: white; position:absolute; margin-left:80%; bottom:90%;" href="../exit.php">Выход</a>
     </nav>
 </div>

@@ -53,7 +53,7 @@ $user_id=$_SESSION["id_user"];
                     <a href="../account/accounts.php?user_id=<?php echo $us['id_user'];?>" style="color: navy;"> <?php echo $us['last_name'].' '.$us['name'].' '.$us['middle_name']?></a><br>
                     <div class="<?php echo $color;?>" style="font-size:10px;"><?php echo $type;$type='';?></div>
                   </div>
-                  <a class="btn-lg" style="color: white;background-color:navy; box-shadow:0 0 15px #666; border-radius:100px;padding:30%;" href="../mail/mail.php?user_id=<?php echo $us['id_user'];?>">&#9993</a>
+                  <a class="btn-lg" style="color: white;background-color:navy; box-shadow:0 0 15px #666; border-radius:100px;padding:30%;" href="../mail/mail.php?user_id=<?php echo $us['id_user'].'&name='.$us['name']?>;?>">&#9993</a>
               </div><br>
               <?php
               }
