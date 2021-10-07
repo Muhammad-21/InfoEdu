@@ -36,7 +36,9 @@ if(count($user) == 0){
     $_SESSION['nous'] = 1;
     $mysql->close();
     header('Location: /index.php');
-} elseif (count($teacher['id_teacher']) == 1){
+}elseif($user['id_user'] == 26){
+    header('Location: /admin/admin.php');
+}elseif (count($teacher['id_teacher']) == 1){
 //запрос вывод всех курсов преподавателя
 $teaches=$mysql->query("SELECT *
     FROM course 
