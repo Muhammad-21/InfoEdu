@@ -40,7 +40,7 @@ if($_SESSION['id_student']){
 <div style="display: grid; grid-template-columns:435px 700px 100px;">
     
     <!-- блок сообщений -->
-    <div style="margin-top:5%;">
+    <div style="margin-top:5%;overflow:auto;  height: 520px;">
         <div style="border: 1px solid white;border-radius:5px; background:white; margin-left:2%;">
         <?php
         $id_sender=$_SESSION['id_user']; 
@@ -49,7 +49,7 @@ if($_SESSION['id_student']){
         $res= $sql -> fetch_assoc();
         $all_messages = [];
         $messages =[];
-    
+        if(count($res) > 0){
         do{
             array_push($all_messages,$res);
         }
@@ -96,7 +96,11 @@ if($_SESSION['id_student']){
             </div>
         </button>
         <div style="border: 1px solid black;"></div>
-        <?php } ?>
+        <?php }
+        }else{
+            $_SESSION['recipient_name']='empty';
+            $_SESSION['id_recipient']='empty';
+        } ?>
         </div>
     </div>
 

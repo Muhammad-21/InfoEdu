@@ -51,7 +51,7 @@
                 <?php } ?>
         </div>
     </div>
-    <a target="_blank" class="btn" style="color: white; background:Navy;margin-left:22%;margin-top:2%;" href="../mail/mail.php?user_id=<?php echo $list['id_user'];?>&name=<?php echo $list['name'];?>">Написать сообщение</a>
+    <a class="btn" style="color: white; background:Navy;margin-left:22%;margin-top:2%;" href="../mail/mail.php?user_id=<?php echo $list['id_user'];?>&name=<?php echo $list['name'];?>">Написать сообщение</a>
     <?php require '../blocks/footer.php';
     $mysql->close();?>
 </body>

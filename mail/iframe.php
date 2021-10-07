@@ -24,6 +24,13 @@ if($id_recipient == null){
     <?php
     exit;
 }
+if($id_recipient == 'empty'){
+    ?>
+    <br><br><br><br><br><br><br><br>
+    <strong class="badge-dark" style="border-radius:15%;margin-left:45%; color:white;"> Пусто </strong>
+    <?php
+    exit;
+}
 $mysql=new mysqli('localhost','root','','InfoEdu');
 if(isset($_POST['message']) && $_POST['message']!=''){
     $message=filter_var(trim($_POST['message']),FILTER_SANITIZE_STRING);
