@@ -25,10 +25,11 @@
         <div >&mdash; <a href="addGroups.php">Добавить группу</a></div>
         <div >&mdash; <a href="addStudents.php">Добавить студентов</a></div>
         <div >&mdash; <a href="addTeachers.php">Добавить преподавателей</a></div>
+        <div >&mdash; <a href="addCourses.php">Добавить курс</a></div>
     </div>
 
 <!-- Footer -->
-    <div class="border-top" style="margin-top: 10%;margin-left:10%;margin-right:10%;">
+    <div class="border-top" style="margin-top: 5%;margin-left:10%;margin-right:10%;">
         <div style="margin:10%;">
             <small>© 2021</small>
         </div>
