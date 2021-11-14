@@ -6,7 +6,7 @@ _The platform is being implemented as part of Educational and Research Work._
 ***The platform is under development...***
 ## Some screenshots of the platform
 ![Home page](./assets/main.png)  
-***Home Page***  
+<strong align="center">Home Page</strong>  
 
 ![Users Page](./assets/users_page.png)  
 ***Personal account***  
