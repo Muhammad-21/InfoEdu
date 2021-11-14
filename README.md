@@ -20,7 +20,7 @@ _The platform is being implemented as part of Educational and Research Work._
 <strong style="text-align: center;">Messages page</strong>   
 
 
-![raiting](./assets/raiting.png)  
+![raiting](./assets/reiting.png)  
 <strong style="text-align: center;">Students raiting</strong>  
 
 
