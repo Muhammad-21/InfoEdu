@@ -16,15 +16,15 @@
 <div style="margin-top:3%; border:1px solid black;"class="container">
   <form method="POST" action="scripts/addGroups.php"><br>
     <div class="form-group row">
-      <label for="inputGroupNumber" class="col-sm-2 col-form-label">Номер группы</label>
+      <label for="groupNumber" class="col-sm-2 col-form-label">Номер группы</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" id="inputGroupNumber" placeholder="номер группы" required>
+        <input type="text" class="form-control" name="groupNumber" id="groupNumber" placeholder="номер группы" required>
       </div>
     </div>
     <div class="form-group row">
-      <label for="inputGroupName" class="col-sm-2 col-form-label">Специальность</label>
+      <label for="groupName" class="col-sm-2 col-form-label">Специальность</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" id="inputGroupName" placeholder="специальность" required>
+        <input type="text" class="form-control" name="groupName" id="groupName" placeholder="специальность" required>
       </div>
     </div>
     <div class="form-group row">
@@ -34,5 +34,15 @@
     </div>
   </form>
 </div>
+<!-- <script>
+  const buttonEl = document.querySelector('[action="scripts/addGroups.php"]');
+  buttonEl.onchange = (evt) =>{
+    if(document.querySelector('[name="groupNumber"]').value === ''){
+      console.log('aa');
+    }
+    console.log(document.querySelector('[name="groupName"]').value)
+  }
+
+</script> -->
 </body>
 </html>

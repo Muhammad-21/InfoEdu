@@ -20,17 +20,24 @@
             <a class="btn" style="color: white;" href="../exit.php">Выход</a>
         </div>
     </div>
-
-    <div style="margin-top: 10%; margin-left:20%; " >
+    <div style="margin-top: 10%;" class="form-row">
+    <div style="margin-left:20%; ">
         <div >&mdash; <a href="addGroups.php">Добавить группу</a></div>
         <div >&mdash; <a href="addStudents.php">Добавить студентов</a></div>
         <div >&mdash; <a href="addTeachers.php">Добавить преподавателей</a></div>
         <div >&mdash; <a href="addCourses.php">Добавить курс</a></div>
     </div>
-
+    <div style="margin-left:10%; border-left: 2px solid black;""></div>
+    <div style="margin-left:10%;">
+        <div >&mdash; <a href="">Список групп</a></div>
+        <div >&mdash; <a href="">Список студентов</a></div>
+        <div >&mdash; <a href="">Список преподавателей</a></div>
+        <div >&mdash; <a href="">Список курсов</a></div>
+    </div>
+    </div>
 <!-- Footer -->
-    <div class="border-top" style="margin-top: 5%;margin-left:10%;margin-right:10%;">
-        <div style="margin:10%;">
+    <div class="border-top" style="margin-top:5%;margin-left:10%;margin-right:10%;">
+        <div style="margin:5%;">
             <small>© 2021</small>
         </div>
     </div>

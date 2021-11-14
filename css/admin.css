@@ -8,3 +8,18 @@ a:hover{
     background-color: black;
     color: white;
 }
+
+.bi-person-plus-fill:hover{
+    fill: green;
+    cursor: pointer;
+}
+.cht{
+    cursor: pointer;
+}
+.bi-person-plus-fill{
+    cursor: pointer;
+}
+.cht:hover {
+    color:green;
+    cursor: pointer;
+}
