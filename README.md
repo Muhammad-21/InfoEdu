@@ -6,22 +6,26 @@ _The platform is being implemented as part of Educational and Research Work._
 ***The platform is under development...***
 ## Some screenshots of the platform
 ![Home page](./assets/main.png)  
-<strong align="center">Home Page</strong>  
+<strong style="text-align: center;">Home Page</strong>  
 
 ![Users Page](./assets/users_page.png)  
-***Personal account***  
+<strong style="text-align: center;">Personal account</strong>   
+
 
 ![courses](./assets/courses.png)  
-***List of courses***  
+<strong style="text-align: center;">List of courses</strong>   
+
 
 ![messages](./assets/message.png)  
-***Messages page***  
+<strong style="text-align: center;">Messages page</strong>   
+
 
 ![raiting](./assets/raiting.png)  
-***Students raiting***  
+<strong style="text-align: center;">Students raiting</strong>  
+
 
 ![files](./assets/add_files.png)  
-***Uploading files to the server***  
+<strong style="text-align: center;">Uploading files to the server</strong>  
 
 
 
