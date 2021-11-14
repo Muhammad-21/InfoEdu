@@ -8,6 +8,14 @@ _The platform is being implemented as part of Educational and Research Work._
 ![Home page](./assets/main.png)  
 <strong style="text-align: center;">Home Page</strong>  
 
+
+![files](./assets/reg.png)  
+<strong style="text-align: center;">Registration form</strong>  
+
+
+![files](./assets/Student.png)    
+
+
 ![Users Page](./assets/users_page.png)  
 <strong style="text-align: center;">Personal account</strong>   
 
@@ -26,6 +34,9 @@ _The platform is being implemented as part of Educational and Research Work._
 
 ![files](./assets/add_files.png)  
 <strong style="text-align: center;">Uploading files to the server</strong>  
+
+
+
 
 
 
