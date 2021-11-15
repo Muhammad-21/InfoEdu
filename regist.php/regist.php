@@ -17,7 +17,7 @@
 </head>
 <body>
 <div style="margin-top:5%;">
-    <h4 class="container">Форма для регистрации |<a href="/"> вернуться назад</a> | <a href="regist.php"> вернуться к выбору</a></h4>
+    <h4 class="container">Форма для регистрации |<a href="/"> вернуться назад</a> | <a data-id="back"  href="regist.php"> вернуться к выбору</a></h4>
 </div>
 <div data-id="person-type">
   <h5 style="display: flex;justify-content:center;margin-top:5%;">Выберите тип пользователья:</h5>

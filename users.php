@@ -21,9 +21,9 @@ $user_id=$_SESSION["id_user"];
         <div>
         <?php 
         $mysql=new mysqli('localhost','root','','InfoEdu');
-        $results=$mysql->query("SELECT * From user ORDER BY last_name");
+        $results=$mysql->query("SELECT * From `user` WHERE `status`='1' ORDER BY `last_name`");
         $us=$results->fetch_assoc();
-            do{ if($us['id_user']!=25 && $us['id_user']!=$user_id){
+            do{ if($us['id_user']!=25 && $us['id_user']!=$user_id && $us['id_user']!=26){
               $id = $us['id_user'];
               
               $co = $mysql->query("SELECT * FROM `teacher` WHERE `id_user` = '$id'");

@@ -1,0 +1,56 @@
+.list{
+    cursor: pointer;
+}
+
+.list:hover {
+    background: black;
+    color: white;
+}
+
+a {
+    text-decoration: none; 
+    color:black;
+    font-size:18px;
+}
+
+a:hover{
+    text-decoration: none; 
+    background-color: black;
+    color: white;
+}
+
+
+.modal {
+    position: fixed;
+    display: none;
+    background: rgb(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    padding: 25px;
+    background: white;
+    min-width: 500px;
+    width: 400px;
+    height:  400px;
+}
+
+.modal__exit{
+    color:white;
+    width: 25px;
+    border: none;
+    background: red;
+}
+.modal__exit:hover{
+    color: white;
+    background: hsl(0, 93%, 39%);
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+}
+
+.us__inf{
+    display:block;
+    margin-top: 8%;
+}

@@ -18,6 +18,14 @@ if($_SESSION){
     <?php
     exit();
 }
+
+//Проверка на одобрение
+if($user['status'] == '0'){
+    ?><h1 style="margin-left:25%; margin-top:20%; color:navy;">Администратор ещё не подтвердил ваш аккаунт.<br>Пожалуйста ждите ответа от администратора.</h1><br>
+    <a  style="margin-left:75%;font-size:30px; color:red;"href="/">назад</a>
+    <?php
+    exit();
+}
 $student=$mysql->query("SELECT * FROM `student` WHERE `id_user`='$id_user'");
 $student_id= $student -> fetch_assoc();
 $_SESSION['id_student']=$student_id['id_student'];
