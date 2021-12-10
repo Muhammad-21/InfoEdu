@@ -18,3 +18,12 @@ teacherEl.onclick = () => {
     teachersRegEl.style.display = "block"
     backEl.style.display = "inline";
 }
+
+
+let queryString = window.location.href ? window.location.href.split('?')[1] : null;
+
+if(queryString.split('=')[1] === 'success'){
+    alert('Ваш запрос на регистрацию принят и направлен администратору')
+}else{
+    alert('Error')
+}
