@@ -105,15 +105,15 @@
 
 <!-- Регистрация преподавателей -->
 <div style="margin-top:3%; border:1px solid black;" class="container" data-id="teachers-reg">
-  <form method="POST" action="addTeachers.php"><br>
+  <form method="POST" action="addTeacher.php"><br>
     <div style="margin-left:10%" class="form-row">
       <div class="col-md-4 mb-3">
           <label for="name">Имя</label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Введите ваше имя"  required>
       </div>
       <div style="margin-left:9%" class="col-md-4 mb-3">
-        <label for="numberCard">Должности</label>
-        <input type="text" class="form-control" name="numberCard" id="numberCard" placeholder="Введити ваши должности" required>
+        <label for="post">Должности</label>
+        <input type="text" class="form-control" name="post" id="post" placeholder="Введити ваши должности" required>
       </div>
     </div>
 
@@ -137,6 +137,14 @@
         <label for="password">Пароль</label>
         <input type="password" class="form-control" name="password" id="password" placeholder="Придумайте пароль" required>
       </div>
+    </div>
+    <div class="form-group" style="margin-left:10%;margin-right:60%">
+      <label for="sex">Выбирите ваш пол</label>
+        <select id="sex" name="sex" class="custom-select" required>
+            <option selected disabled>пол</option>
+                <option>мужской</option>
+                <option>женский</option>
+        </select>
     </div>
       
    
