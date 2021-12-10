@@ -31,7 +31,7 @@
           <input type="text" class="form-control" name="login"  placeholder="Логин" required><br>
           <input type="password" class="form-control" name="pass"  placeholder="Пароль" required><br>
           <button class="btn btn-primary" type="submit" style="width: 100%;">Войти</button>
-          <div align="right"><a href="regist.php/regist.php"color:navy">Регистрация</a></div>
+          <div align="right"><a href="regist/regist.php"color:navy">Регистрация</a></div>
         </form>
         </div>
         <p class="mt-5 mb-3 text-muted" style="padding-left: 47%;">© 2021</p>
