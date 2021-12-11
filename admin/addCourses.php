@@ -1,3 +1,9 @@
+<? 
+  $mysql=new mysqli('localhost','root','','InfoEdu');
+  $results=$mysql->query("SELECT * From `group`");
+  $group=$results->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +20,7 @@
     <h4 class="container">Добавление нового курса |<a href="admin.php"> вернуться назад</a></h4>
 </div>
 <div style="margin-top:3%; border:1px solid black;"class="container">
-  <form method="POST" action="scripts/addGroups.php"><br>
+  <form method="POST" action="scripts/addCourses.php"><br>
     <div class="form-group row">
       <label for="courseName" class="col-sm-2 col-form-label">Название курса</label>
       <div class="col-sm-5">
@@ -22,9 +28,24 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="groupName" class="col-sm-2 col-form-label">Специальность</label>
+    <label for="groupNumber" class="col-sm-2 col-form-label">Номер группы</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="groupName" id="groupName" placeholder="специальность" required>
+        <select id="groupNumber" name="groupNumber" class="custom-select" required>
+            <option selected disabled>Номер группы</option>
+            <?php 
+                do{
+                    echo '<option>'.$group['group_number'].'</option>';
+                }
+                while($group=$results->fetch_assoc());
+                $mysql->close();
+            ?>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="description" class="col-sm-2 col-form-label">Описание курса</label>
+      <div class="col-sm-5">
+        <textarea type="text" rows=5 class="form-control" name="description" id="description" placeholder="введите текст описание" required></textarea>
       </div>
     </div>
     <div class="form-group row">

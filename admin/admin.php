@@ -22,17 +22,17 @@
     </div>
     <div style="margin-top: 10%;" class="form-row">
     <div style="margin-left:20%; ">
-        <div >&mdash; <a href="#">Пользователи ситемы</a></div>
         <div >&mdash; <a href="addGroups.php">Добавить группу</a></div>
         <div >&mdash; <a href="addUsers.php">Добавить пользователей</a></div>
         <div >&mdash; <a href="addCourses.php">Добавить курс</a></div>
+        <div >&mdash; <a href="#">Добавить курсы преподавателью</a></div>
     </div>
     <div style="margin-left:10%; border-left: 2px solid black;""></div>
     <div style="margin-left:10%;">
         <div >&mdash; <a href="">Список групп</a></div>
-        <div >&mdash; <a href="">Список студентов</a></div>
-        <div >&mdash; <a href="">Список преподавателей</a></div>
+        <div >&mdash; <a href="">Список пользователей</a></div>
         <div >&mdash; <a href="">Список курсов</a></div>
+        <div >&mdash; <a href="">Список </a></div>
     </div>
     </div>
 <!-- Footer -->
