@@ -6,7 +6,7 @@
     <div  data-id="course" class="btn"  style="color: white;">Курсы</div>
     <div  data-id="users" class="btn"  style="color: white;">Пользователи</div>
     <a class="btn" style="color: white;" href="../mail/mail.php">Сообщения</a>
-    <a class="btn" style="color: white; position:absolute; margin-left:80%; bottom:90%;" href="../exit.php">Выход</a>
+    <a class="btn" style="color: white; position:absolute; margin-left:50%; bottom:90%;" href="../exit.php">Выход</a>
     </nav>
 </div>
 </div>

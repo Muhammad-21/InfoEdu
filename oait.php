@@ -19,7 +19,7 @@ require 'exit/exit.php';
     <nav class="my-2 my-md-0 me-md-3" >
     <a class="btn" style="color: white;" href="./student.php">Главная</a>
     <div  data-id="rating" class="btn"   style="color: white;">Рейтинг</div>
-    <a class="btn" style="color: white; position:absolute; margin-left:75%; bottom:90%;" href="student.php">Вернуться назад</a>
+    <a class="btn" style="color: white; position:absolute; margin-left:60%; bottom:90%;" href="student.php">Вернуться назад</a>
     </nav>
 </div>
 </div>

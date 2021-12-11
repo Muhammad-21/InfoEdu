@@ -32,7 +32,7 @@
     <nav class="my-2 my-md-0 me-md-3" >
     <a class="btn" style="color: white;" href="./teacher.php">Главная</a>
     <a class="btn" data-id="dz" style="color: white;" href="laba_work.php">ДЗ студентов</a>
-    <a class="btn" style="color: white; position:absolute; margin-left:75%; bottom:90%;" href="oait_teacher.php">Вернуться назад</a>
+    <a class="btn" style="color: white; position:absolute; margin-left:60%; bottom:90%;" href="oait_teacher.php">Вернуться назад</a>
     </nav>
 </div>
 </div>

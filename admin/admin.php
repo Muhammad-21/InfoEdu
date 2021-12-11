@@ -25,7 +25,7 @@
         <div >&mdash; <a href="addGroups.php">Добавить группу</a></div>
         <div >&mdash; <a href="addUsers.php">Добавить пользователей</a></div>
         <div >&mdash; <a href="addCourses.php">Добавить курс</a></div>
-        <div >&mdash; <a href="#">Добавить курсы преподавателью</a></div>
+        <div >&mdash; <a href="addCourseTeach.php">Добавить курсы преподавателью</a></div>
     </div>
     <div style="margin-left:10%; border-left: 2px solid black;""></div>
     <div style="margin-left:10%;">
