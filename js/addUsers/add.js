@@ -18,4 +18,3 @@ function click(modal,index) {
 }
 
 listEl.forEach((modal,index) => click(modal,index));
-

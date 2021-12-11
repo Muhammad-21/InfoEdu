@@ -16,7 +16,11 @@
         $mysql=new mysqli('localhost','root','','InfoEdu');
         $results=$mysql->query("SELECT * From `user` WHERE `status`='0' ORDER BY `last_name`");
         $us=$results->fetch_assoc();
-        
+        if(count($us) == 0){
+        ?>
+          <div style="margin-left:40%">список пуст</div>
+        <?
+        }else{
             do{
               $id = $us['id_user'];
               
@@ -49,19 +53,25 @@
                       <div style="display: flex;">
                         <img class="img" src="<?php echo '../img/users/'.$us['photo_link']?>" alt="фотография профиля">
                         <div class="us__inf">
+                            <div><strong>id: </strong><?php echo $us['id_user']?></div>
                             <div><strong>Фамилия: </strong><?php echo $us['last_name']?></div>
                             <div><strong>Имя: </strong><?php echo $us['name']?></div>
                             <div><strong>Отчество: </strong><?php echo $us['middle_name']?></div>
-                            <div><?php echo $type.$post?></div>
+                            <div><?php echo $type; if($post !== ''){ echo $post;$post='';}?></div>
                         </div>
                       </div>
-                      <button style="margin-top:4%;" class="btn btn-success">принять</button>
-                      <button style="margin-top:2%;" class="btn btn-danger">отклонить</button>
+                      <form action="scripts/addUsers.php?status=add&id=<?php echo $us['id_user']?>" method="POST">
+                        <button style="margin-top:4%; width: 450px;" class="btn btn-success">принять</button>
+                      </form>
+                      <form action="scripts/addUsers.php?status=reject&id=<?php echo $us['id_user']?>" method="POST">
+                        <button style="margin-top:2%; width: 450px;" class="btn btn-danger">отклонить</button>
+                      </form>
                     </div>
                   </div>
               <?php
               }
             while ($us=$results->fetch_assoc());
+        }
             ?>
     </div>
 <script src="../js/addUsers/add.js"></script>
