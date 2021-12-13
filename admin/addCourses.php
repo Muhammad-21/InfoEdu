@@ -19,8 +19,17 @@
 <div style="margin-top:10%;">
     <h4 class="container">Добавление нового курса |<a href="admin.php"> вернуться назад</a></h4>
 </div>
-<div style="margin-top:3%; border:1px solid black;"class="container">
+
+<!-- добавление курсов -->
+<div style="margin-top:3%; border:1px solid black;" class="container">
   <form method="POST" action="scripts/addCourses.php"><br>
+  <div class="form-group row">
+      <label for="course-type" class="col-sm-2">Курс по выбору?</label>
+      <div class="col-sm-5">
+        <p><input name="course-type" type="radio" value="да">да
+        <input name="course-type" type="radio" value="нет">нет</p>
+      </div>
+    </div>
     <div class="form-group row">
       <label for="courseName" class="col-sm-2 col-form-label">Название курса</label>
       <div class="col-sm-5">

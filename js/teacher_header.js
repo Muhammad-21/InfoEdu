@@ -5,14 +5,8 @@ const UsersEl = document.querySelector('[data-id="users"]');
 const UsEl = document.querySelector('[data-id="us"]');
 const loadEl =document.querySelector('[data-id="loader"]');
 CoursesEl.style.display = 'none';
-// PersonEl.style.display = 'block';
+PersonEl.style.display = 'block';
 UsEl.style.display='none';
-PersonEl.style.display = 'none';
-loadEl.style.display='block';
-    setTimeout(()=>{
-        loadEl.style.display='none';
-        PersonEl.style.display = 'block';
-    },3500);
 
 MyCourseEl.onclick = () => {
     loadEl.style.display='block';
