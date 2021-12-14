@@ -6,6 +6,8 @@
     if($status == 'add'){
         $mysql->query("UPDATE `user` SET `status`=1 WHERE `id_user`='$id'");
     }elseif($status == 'reject'){
+        $mysql->query("DELETE FROM `teacher` WHERE `id_user`='$id'");
+        $mysql->query("DELETE FROM `student` WHERE `id_user`='$id'");
         $mysql->query("DELETE FROM `user` WHERE `id_user`='$id'");
     }   
     $mysql->close();

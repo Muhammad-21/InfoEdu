@@ -20,7 +20,7 @@ $id_recipient=$_SESSION['id_recipient'];
 if($id_recipient == null){
     ?>
     <br><br><br><br><br><br><br><br>
-    <strong class="badge-dark" style="border-radius:15%;margin-left:30%; color:white;"> Выберите, чат с сообщениями </strong>
+    <strong class="badge-dark" style="border-radius:10px;margin-left:30%; color:white; padding:4px;"> Выберите, чат с сообщениями </strong>
     <?php
     exit;
 }
