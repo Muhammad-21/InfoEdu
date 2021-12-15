@@ -2,6 +2,7 @@
 session_start();
 require 'exit/exit.php';
 $user_id=$_SESSION["id_user"];
+$status=filter_var(trim($_GET['status']),FILTER_SANITIZE_STRING);
 if($_SESSION['img_status']==1){
     $err="Тип файла несоответсвует";
     $e=1;//помощьник
@@ -30,7 +31,7 @@ $courses=$results->fetch_assoc();
 </head>
 <body>
     <?php require 'blocks/header.php'?>
-
+    <div data-id="root">
     <!-- Информация о студенте -->
     <div data-person="person">
     <form method="POST" action="../load_img.php" enctype="multipart/form-data" style="margin-left: 24%; margin-top:5%;">
@@ -81,7 +82,11 @@ $courses=$results->fetch_assoc();
                     <div data-id="descripBody" class="descrip__body"><? if($courses['description'] !== ""){echo $courses['description'];}else{echo "Описание ещё не добавлен";} ?></div>
                 </div>
                 <div>
-                    <button class="btn btn-success">записаться</button>
+                    <form method="POST" action="./scripts/joinToCourse.php">
+                        <input type="hidden" name="id_student" value="<? echo $id_student;?>">
+                        <input type="hidden" name="id_course" value="<? echo $id_course;?>">
+                        <button class="btn btn-success">записаться</button>
+                    </form>
                 </div>
             </div><br>
     <? }
@@ -119,6 +124,7 @@ $courses=$results->fetch_assoc();
             ?>
         </div>
        </div>
+    </div>
     </div>
     <?php require 'blocks/footer.php';
     $mysql->close();
