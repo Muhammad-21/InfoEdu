@@ -1,0 +1,22 @@
+.descrip{
+    cursor: pointer;
+    color: navy;
+    display:block;
+}
+
+.descrip__body{
+    display: none;
+    background: rgba(0, 0, 128, 0.329);
+    border-radius: 15px;
+    padding: 15px;
+    margin-left: 40px;
+}
+
+.course{
+    display: flex;
+    border: 5px solid Navy; 
+    padding: 30px; 
+    margin-left:15%;
+    margin-right:15%;
+    justify-content: space-between;
+}

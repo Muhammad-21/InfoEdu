@@ -26,7 +26,7 @@ if($user['status'] == '0'){
     <?php
     exit();
 }
-$student=$mysql->query("SELECT * FROM `student` WHERE `id_user`='$id_user'");
+$student=$mysql->query("SELECT * FROM `student` JOIN `group` ON `group`.id_group=`student`.id_group WHERE `id_user`='$id_user'");
 $student_id= $student -> fetch_assoc();
 $_SESSION['id_student']=$student_id['id_student'];
 $_SESSION['id_user']=$id_user;
@@ -70,7 +70,7 @@ $courses= $teaches -> fetch_assoc();
     $mysql->close();
     header('Location: /teacher/teacher.php');
 } else {
-    $_SESSION['group_number'] = 'Б18-504';
+    $_SESSION['group_number'] = $student_id['group_number'];
     $mysql->close();
     header('Location: /student.php');
 }

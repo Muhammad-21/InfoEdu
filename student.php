@@ -12,6 +12,10 @@ if($_SESSION['img_status']==1){
 $mysql=new mysqli('localhost','root','','InfoEdu');
 $res=$mysql->query("SELECT * From user WHERE user.id_user=$user_id");
 $mail=$res->fetch_assoc();
+
+$group_number = $_SESSION['group_number'];
+$results=$mysql->query("SELECT * From `course` JOIN `group` ON `group`.id_group=`course`.id_group WHERE `group_number`='$group_number'");
+$courses=$results->fetch_assoc(); 
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -21,6 +25,7 @@ $mail=$res->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/courses.css">
     <title>Личный кабинет</title>
 </head>
 <body>
@@ -47,17 +52,40 @@ $mail=$res->fetch_assoc();
             <div>Имя: <?php echo $_SESSION['user_name']?></div>
             <div>Фамилия: <?php echo $_SESSION['user_last_name']?></div>
             <div>Отчество: <?php echo $_SESSION['user_middle_name']?></div>
-            <div>Номер группы: <?php echo $_SESSION['group_number']?></div>
+            <div>Номер группы: <?php echo $group_number?></div>
         </div>
     </div>
 
     <!-- Раздел мои курсы -->
     <div data-course="courses">
-    <h4 style="margin-top:5%; color:Navy; margin-left:15%;">Все курсы</h4>
-    <p style="border: 5px solid Navy; padding: 40px; margin-left:15%;margin-right:15%;">
-        <a href="oait.php" style="color:black;" >Основы автоматизированных информационных технологий.</a>
-        <span style="color: Navy;">Тихомирова Д.В.</span>
-    </p>
+    <h4 style="margin-top:5%; color:Navy; margin-left:15%;">Доступные курсы</h4>
+    <?do{
+        $id_student = $_SESSION['id_student'];
+        $id_course = $courses['id_course'];
+        $result_user=$mysql->query("SELECT * From `study` WHERE `id_student`='$id_student' AND `id_course`='$id_course'");
+        $is_join = $result_user->fetch_assoc();
+        if(count($is_join) > 0 ){
+        ?>
+            <div class="course">
+                <div>
+                    <a href="oait.php" style="color:black;" ><?echo $courses['course_name']?></a>
+                    <strong data-id="descrip" class="descrip">описание курса</strong>
+                    <div data-id="descripBody" class="descrip__body"><? if($courses['description'] !== ""){echo $courses['description'];}else{echo "Описание ещё не добавлен";} ?></div>
+                </div>            
+            </div><br>
+        <?}else{ ?>
+        <div class="course">
+                <div>
+                    <div style="color:black;" ><?echo $courses['course_name']?></div>
+                    <strong data-id="descrip" class="descrip">описание курса</strong>
+                    <div data-id="descripBody" class="descrip__body"><? if($courses['description'] !== ""){echo $courses['description'];}else{echo "Описание ещё не добавлен";} ?></div>
+                </div>
+                <div>
+                    <button class="btn btn-success">записаться</button>
+                </div>
+            </div><br>
+    <? }
+    }while($courses=$results->fetch_assoc())?>
     </div>
     <?php require 'scripts/rating.php'?>
     <!-- Раздел рейтинг -->
@@ -92,7 +120,6 @@ $mail=$res->fetch_assoc();
         </div>
        </div>
     </div>
-    
     <?php require 'blocks/footer.php';
     $mysql->close();
     ?>

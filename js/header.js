@@ -36,3 +36,16 @@ MyCourseEl.onclick = () => {
     PersonEl.style.display = 'none'
     MyRatingEl.style.display = 'none';
 }
+
+        const descripEl = document.querySelectorAll('[data-id="descrip"]');
+        const descripBodyEl = document.querySelectorAll('[data-id="descripBody"]');
+
+        descripEl.forEach((el,index) => {
+            el.onclick = () => {
+                if(descripBodyEl[index].style.display !== "block"){
+                    descripBodyEl[index].style.display="block";
+                }else{
+                    descripBodyEl[index].style.display="none";
+                }
+            }
+        })
