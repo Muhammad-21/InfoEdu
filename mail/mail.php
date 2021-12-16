@@ -41,6 +41,7 @@ if($_SESSION['id_student']){
     
     <!-- блок сообщений -->
     <div style="margin-top:5%;overflow:auto;  height: 520px;">
+        <div class="update">Обновить</div><br>
         <div style="border: 1px solid white;border-radius:5px; background:white; margin-left:2%;">
         <?php
         $id_sender=$_SESSION['id_user']; 
@@ -118,6 +119,26 @@ if($_SESSION['id_student']){
     </div>
 
 </div>
-<script src="../js/message/click_btn.js" ></script>
+<script>
+    const updateEl = document.querySelector('.update');
+    updateEl.onclick = () => {
+        location.href="./mail.php";
+    }
+</script>
 </body>
+<style>
+    .update{
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid white;
+        background:white; 
+        margin-left:2%;
+        align-content: center;
+    }
+    .update:hover{
+        background-color:black;
+        color: white;
+    }
+</style>
 </html>
