@@ -35,3 +35,17 @@ UsersEl.onclick = () => {
     MyCourseEl.style.background = 'navy'
     MyCourseEl.style.color = 'white';
 }
+
+const groups = document.querySelectorAll('[data-id="group"]');
+const courses = document.querySelectorAll('[data-id="courses"]');
+
+
+groups.forEach((el,index) => {
+    el.onclick = () => {
+        if(courses[index].style.display === 'none'){
+            courses[index].style.display = 'block';
+        }else{
+            courses[index].style.display = 'none';
+        }
+    }
+})

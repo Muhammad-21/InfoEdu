@@ -11,6 +11,9 @@ if($_SESSION['img_status']==1){
 $mysql=new mysqli('localhost','root','','InfoEdu');
 $res=$mysql->query("SELECT * From user WHERE user.id_user=$user_id");
 $mail=$res->fetch_assoc();
+$id_teacher = $_SESSION['id_teacher'];
+$res_groups=$mysql->query("SELECT * From teaches JOIN course ON course.id_course=teaches.id_course JOIN `group` ON `group`.id_group=course.id_group WHERE id_teacher=$id_teacher group BY `group`.`id_group`");
+$groups=$res_groups->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -67,9 +70,23 @@ $mail=$res->fetch_assoc();
     <!-- Раздел курсы -->
     <div data-course="courses">
     <h4 style="margin-top:5%; color:Navy; margin-left:15%;">Все курсы</h4>
-    <p style="border: 5px solid Navy; box-shadow:0 0 15px #666; padding: 40px; margin-left:15%;margin-right:15%;">
-        <a href="oait_teacher.php" style="color:black;" >Основы автоматизированных информационных технологий.</a>
-    </p>
+    <? do{?>
+        <div data-id="group" class="group"><?echo $groups['group_number']?></div><br>
+        <div data-id="courses" style="display:none;">
+            <?
+                $id_group = $groups["id_group"];
+                $res_courses=$mysql->query("SELECT * From teaches JOIN course ON course.id_course=teaches.id_course JOIN `group` ON `group`.id_group=course.id_group WHERE id_teacher=$id_teacher AND `group`.`id_group`=$id_group");
+                $courses = $res_courses -> fetch_assoc();
+                do{
+                ?>
+                    <p style="border: 2px solid Navy; padding: 15px; margin-left:25%;margin-right:25%;">
+                        <a href="oait_teacher.php" style="color:black;" ><? echo $courses['course_name']?></a>
+                    </p>
+                <?
+                }while($courses = $res_courses -> fetch_assoc());
+            ?>
+        </div>
+    <?}while($groups=$res_groups->fetch_assoc())?>
     </div>
 
 
@@ -125,6 +142,15 @@ $mail=$res->fetch_assoc();
 <style>
     .custom-file-upload{
         cursor: pointer;
+    }
+    .group{
+        margin-left:20%; 
+        cursor:pointer;
+    }
+    .group:hover{
+        background-color: navy;
+        color: white;
+        width: 65px;
     }
 </style>
 </html>
