@@ -8,6 +8,8 @@ _The platform is being implemented as part of Educational and Research Work._
 ![Home page](./assets/main.png)  
 <strong style="text-align: center;">Home Page</strong>  
 
+![Home page](./assets/users_page.png)  
+<strong style="text-align: center;">Viewing the user's personal account</strong> 
 
 ![files](./assets/reg.png)  
 <strong style="text-align: center;">Registration form</strong>  
