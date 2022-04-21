@@ -1,13 +1,14 @@
-.user_inter{
-    margin-top:50px;
+
+    .button__hover:hover{
+        color:#2aa493;
+        background-color: white;
     }
-    
     h2 {
         clear: both;
         font-size: 1.8em;
         margin-bottom: 10px;
         padding: 10px 0 10px 30px;
-    } */
+    }
     
     h3 > span {
         border-bottom: 2px solid #C2C2C2;

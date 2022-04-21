@@ -31,12 +31,12 @@ $courses=$results->fetch_assoc();
     <link rel="stylesheet" href="./css/students.css">
     <title>Личный кабинет</title>
 </head>
-<body style="background:#eee;">
+<body style="background:#e2e8f0;">
     <?php require 'blocks/header.php'?>
-    <div data-id="root">
+    <div style="margin-top: 120px;" data-id="root">
     <!-- Информация о студенте -->
     <div data-person="person">
-    <div class="container bootstrap snippets bootdeys user_inter">
+    <div class="container bootstrap snippets bootdeys">
     <div class="row" id="user-profile">
         <div class="col-lg-3 col-md-4 col-sm-4">
             <div class="main-box clearfix">
@@ -45,9 +45,11 @@ $courses=$results->fetch_assoc();
                     <i class="fa fa-check-circle"></i> Online
                 </div>
                 <form method="POST" action="../load_img.php" enctype="multipart/form-data">
-                    <label style="cursor:pointer" title="выберите фотографию" class="custom-file-upload">
+                    <label style="cursor:pointer" title="выберите фотографию" class="img__link custom-file-upload">
+                        <!-- <a href="#" class="img__link"> -->
                         <input name="image" style="display:none;" type="file" onchange="form.submit()"/>
-                        <a href="#" class="img__link"><img src="<?php echo '../img/users/'.$mail['photo_link']?>" alt="person" class="profile-img img-responsive"></a>
+                        <img src="<?php echo '../img/users/'.$mail['photo_link']?>" alt="person" class="profile-img img-responsive">
+                        <!-- </a> -->
                     </label>
                 </form>
                 <?php if($mail['photo_link']!=='personw.jpg' && $mail['photo_link']!=='person.jpg'){?>
@@ -66,7 +68,7 @@ $courses=$results->fetch_assoc();
         <div class="col-lg-9 col-md-18 col-sm-8">
             <div class="main-box clearfix">
                 <div class="profile-header">
-                    <h3><span>Информация о пользователе</span></h3>
+                    <h3><span>Профиль пользователя</span></h3>
                     <a href="#" class="btn btn-primary edit-profile">
                         <i class="fa fa-pencil-square fa-lg"></i> редактировать
                     </a>
@@ -202,6 +204,6 @@ $courses=$results->fetch_assoc();
     <?php require 'blocks/footer.php';
     $mysql->close();
     ?>
-    <script src="./js/header.js"></script>
+    <script src="./js/headers.js"></script>
 </body>
 </html>

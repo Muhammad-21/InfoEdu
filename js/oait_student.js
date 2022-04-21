@@ -14,7 +14,7 @@ RatingEl.onclick = () => {
     },3500);
     }
     RatingEl.style.background = 'white'
-    RatingEl.style.color = 'black';
+    RatingEl.style.color = '#2aa493';
     PersonEl.style.display = 'none';
     MyRatingEl.style.display = 'block';
 }

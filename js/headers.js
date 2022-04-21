@@ -17,20 +17,20 @@ RatingEl.onclick = () => {
         BlockEl.style.display='block';
     },3500);
     }
-    MyCourseEl.style.background = 'Navy'
-    MyCourseEl.style.color = 'white';
+    MyCourseEl.style.background = '#e9ecef'
+    MyCourseEl.style.color = 'black';
     RatingEl.style.background = 'white'
-    RatingEl.style.color = 'black';
+    RatingEl.style.color = '#2aa493';
     CoursesEl.style.display = 'none';
     PersonEl.style.display = 'none';
     MyRatingEl.style.display = 'block';
 }
 
 MyCourseEl.onclick = () => {
-    RatingEl.style.background = 'Navy'
-    RatingEl.style.color = 'white';
+    RatingEl.style.background = '#e9ecef'
+    RatingEl.style.color = 'black';
     MyCourseEl.style.background = 'white'
-    MyCourseEl.style.color = 'black';
+    MyCourseEl.style.color = '#2aa493';
     CoursesEl.style.display = 'block';
     PersonEl.style.display = 'none';
     PersonEl.style.display = 'none'

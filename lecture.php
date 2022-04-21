@@ -10,20 +10,21 @@ require 'exit/exit.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/students.css">
     <title>Лекции</title>
 </head>
 <body>
-<div style="background-color: Navy ;">
-<div class="d-flex align-items-center flex-column flex-md-row p-3 px-md-4  shadow-sm">
-    <a class="p-2 text-dark" href="./student.php" style="text-decoration: none;"><span style="color: white; font-size: 25px; font-style:italic">InfoEdu</span></a>
-    <nav class="my-2 my-md-0 me-md-3" >
-    <a class="btn" style="color: white;" href="./student.php">Главная</a>
-    <a class="btn" style="color: white; position:absolute; margin-left:70%; bottom:90%;" href="oait.php">Вернуться назад</a>
+<div style="background-color: #e9ecef;position:fixed; top:0; width: 100%; z-index:1">
+<div class="d-flex align-items-center flex-md-row p-3 px-md-6  shadow-sm">
+<a class="p-2 text-dark" href="./student.php" style="text-decoration: none;"><span style="color: navy; font-size: 25px; font-style:italic">InfoEdu</span></a>
+<nav class="my-md-1" style="width: 100%;">
+    <a class="btn button__hover" href="./student.php">Главная</a>
+    <a class="btn button__hover" style="float:right" href="oait.php">Вернуться назад</a>
     </nav>
 </div>
 </div>
 
-<div style="border: 3px solid Navy;margin:5%;"><br>
+<div style="border: 3px solid Navy;margin:5%;margin-top:10%;"><br>
 <span style="font-size: 16px;margin-left:15%;color: Navy; ">Материалы для подготовки</span><br>
     <?php 
     $mysql=new mysqli('localhost','root','','InfoEdu');

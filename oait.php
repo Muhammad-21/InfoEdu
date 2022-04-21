@@ -10,18 +10,18 @@ require 'exit/exit.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/students.css">
     <title>ОАИТ</title>
 </head>
 <body>
-<div style="background-color: Navy ;">
-<div class="d-flex align-items-center flex-column flex-md-row p-3 px-md-4  shadow-sm">
-    <a class="p-2 text-dark" href="./student.php" style="text-decoration: none;"><span style="color: white; font-size: 25px; font-style:italic">InfoEdu</span></a>
-    <nav class="my-2 my-md-0 me-md-3" >
-    <a class="btn" style="color: white;" href="./student.php">Главная</a>
-    <div  data-id="rating" class="btn"   style="color: white;">Рейтинг</div>
-    <a class="btn" style="color: white; position:absolute; margin-left:60%; bottom:90%;" href="student.php">Вернуться назад</a>
+<div style="background-color: #e9ecef;position:fixed; top:0; width: 100%; z-index:1">
+<div class="d-flex align-items-center flex-md-row p-3 px-md-6  shadow-sm">
+<a class="p-2 text-dark" href="./student.php" style="text-decoration: none;"><span style="color: navy; font-size: 25px; font-style:italic">InfoEdu</span></a>
+<nav class="my-md-1" style="width: 100%;">
+    <a class="btn button__hover" href="./student.php">Главная</a>
+    <div style="cursor:pointer;"  data-id="rating" class="btn button__hover">Рейтинг</div>
+    <a class="btn button__hover" style="float:right" href="student.php">Вернуться назад</a>
     </nav>
-</div>
 </div>
 </div>
     <div style="margin-left: 10%;margin-top:10%;" data-lesson="lesson">
@@ -34,7 +34,7 @@ require 'exit/exit.php';
 
     <?php require 'scripts/rating.php'?>
     <!-- Раздел рейтинг -->
-    <div data-rating="rating">
+    <div style="margin-top:10%;" data-rating="rating">
         <h3 style="margin-left: 15%; margin-top:5%;" ><span>Рейтинг по курсу</span></h3>
         <h5 style="margin-left: 15%;" >Ваш балл по курсу: <?php echo $my_assessment?></h5>
        <div style="border: 3px solid Navy; padding: 40px; margin-left:15%;margin-right:15%;">
