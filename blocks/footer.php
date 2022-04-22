@@ -20,8 +20,8 @@
       <div class="col-6 col-md">
         <h5>Помощь и поддержка</h5>
         <ul class="list-unstyled text-small">
-          <img style="margin-left:5%;" src="../img/phone.png" width="20"><span style="font-size: 18px;color:navy;"> +7xxx-xxx-xx-xx</span><br>
-          <img style="margin-left:5%;" src="../img/mail.png" width="20"><span style="font-size: 18px;color:navy;"> support@infoedu.ru</span>
+        <i class="fa fa-phone-square"></i><span style="font-size: 18px;color:navy;"> +7xxx-xxx-xx-xx</span><br>
+        <i class="fa fa fa-envelope"></i><span style="font-size: 18px;color:navy;"> support@infoedu.ru</span>
         </ul>
       </div>
     </div>

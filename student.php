@@ -27,7 +27,7 @@ $courses=$results->fetch_assoc();
     <link rel="icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/courses.css">
+    <!-- <link rel="stylesheet" href="./css/courses.css"> -->
     <link rel="stylesheet" href="./css/students.css">
     <title>Личный кабинет</title>
 </head>
@@ -204,6 +204,7 @@ $courses=$results->fetch_assoc();
     <?php require 'blocks/footer.php';
     $mysql->close();
     ?>
-    <script src="./js/headers.js"></script>
+    <script src="./js/headerss.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -4,8 +4,18 @@
     <nav class="my-md-1" style="width: 100%;">
         <a class="btn button__hover" href="./student.php">Главная</a>
         <a class="btn button__hover"  href="../users.php">Пользователи</a>
-        <div  class="btn button__hover" data-id="rating" class="btn button__hover"  >Рейтинг</div>
-        <div  style="cursor:pointer" data-id="course" class="btn button__hover"  >Мои курсы</div>
+        <div style="cursor:pointer" class="btn button__hover" data-id="rating" class="btn button__hover"  >Рейтинг</div>
+        <!-- <div  style="cursor:pointer" data-id="course" class="btn button__hover"  >Обучение</div> -->
+        <div style="display:inline" class="dropdown">
+            <button data-id="course" class="button__hover btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
+                Обучение
+            </button>
+            <ul class="button__hover dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                <li><a class="dropdown-item" href="#">Учебный план</a></li>
+                <li><a class="dropdown-item" href="#">Индивидуальная посещаемость</a></li>
+                <li><a class="dropdown-item" href="../study/my_courses.php">Мои курсы</a></li>
+            </ul>
+        </div>
         <a class="btn button__hover"  href="../mail/mail.php">Сообщения</a>
         <a class="btn button__hover" style="float:right" href="../exit.php">Выход</a>
     </nav>
