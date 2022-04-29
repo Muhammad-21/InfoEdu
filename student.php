@@ -13,7 +13,7 @@ if($_SESSION['img_status']==1){
 $mysql=new mysqli('localhost','root','','InfoEdu');
 $res=$mysql->query("SELECT * From user WHERE user.id_user=$user_id");
 $mail=$res->fetch_assoc();
-
+$_SESSION['user_photo'] = $mail['photo_link'];
 $group_number = $_SESSION['group_number'];
 $results=$mysql->query("SELECT * From `course` JOIN `group` ON `group`.id_group=`course`.id_group WHERE `group_number`='$group_number'");
 $courses=$results->fetch_assoc(); 

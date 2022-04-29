@@ -3,12 +3,15 @@ session_start();
 require '../exit/exit.php';
 $id_recipient=filter_var(trim($_GET['user_id']),FILTER_SANITIZE_STRING);
 $name=filter_var(trim($_GET['name']),FILTER_SANITIZE_STRING);
-if($name and $id_recipient){
+$photo=filter_var(trim($_GET['photo']),FILTER_SANITIZE_STRING);
+if($name and $id_recipient and $photo){
     $_SESSION['recipient_name']=$name;
     $_SESSION['id_recipient']=$id_recipient;
+    $_SESSION['photo']=$photo;
 }else{
     $_SESSION['recipient_name']=null;
     $_SESSION['id_recipient']=null;
+    $_SESSION['photo']=null;
     $dis = 'disabled';
 }
 if($_SESSION['id_student']){
@@ -18,127 +21,106 @@ if($_SESSION['id_student']){
 }
 
 ?>
+
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/mail.css">
+    <title>Сообщения</title>
 </head>
-<body style="background-color: Gainsboro;">
-<div style="background-color: black ;">
-<div class="d-flex align-items-center flex-column flex-md-row p-3 px-md-4  shadow-sm">
-    <a class="p-2 text-dark" href="<?php echo $path?>" style="text-decoration: none;"><span style="color: white; font-size: 25px; font-style:italic">InfoEdu</span></a>
-    <nav class="my-2 my-md-0 me-md-3" >
-    <a class="btn" style="color: white;" href="<?php echo $path?>">Главная</a>
-    </nav>
-</div>
-</div>
-<div style="display: grid; grid-template-columns:435px 700px 100px;">
-    
-    <!-- блок сообщений -->
-    <div style="margin-top:5%;overflow:auto;  height: 520px;">
-        <div class="update">Обновить</div><br>
-        <div style="border: 1px solid white;border-radius:5px; background:white; margin-left:2%;">
-        <?php
-        $id_sender=$_SESSION['id_user']; 
-        $mysql=new mysqli('localhost','root','','InfoEdu');
-        $sql=$mysql->query("SELECT * FROM messages WHERE id_sender =$id_sender or id_recipient=$id_sender ORDER BY id DESC");
-        $res= $sql -> fetch_assoc();
-        $all_messages = [];
-        $messages =[];
-        if(count($res) > 0){
-        do{
-            array_push($all_messages,$res);
-        }
-        while ($res= $sql -> fetch_assoc());
-    
-        $summ_keys = [];
-        for($j=0; $j<count($all_messages); $j++){
-            if(!$summ_keys[$all_messages[$j]['id_sender']+$all_messages[$j]['id_recipient']]){
-                $messages[] = [
-                    'id' => $all_messages[$j]['id'],
-                    'id_sender' => $all_messages[$j]['id_sender'],
-                    'id_recipient' => $all_messages[$j]['id_recipient'], 
-                    'message' => $all_messages[$j]['message'],
-                    'time' => $all_messages[$j]['time']
-                ]; 
-                $summ_keys[$all_messages[$j]['id_sender']+$all_messages[$j]['id_recipient']]=1;
-            }
-        }
-        for($i=0;$i<count($messages);$i++){ 
-                if($messages[$i]['id_sender'] == $_SESSION['id_user']){
-                    $id_user=$messages[$i]['id_recipient'];
-                }else{
-                    $id_user=$messages[$i]['id_sender'];
+<body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script> -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+<div class="row clearfix">
+    <div class="col-lg-12">
+        <div class="card chat-app">
+            <!-- Список людей -->
+            <div id="plist" class="people-list">
+                <div class="back_main" onclick="location.href='<?echo $path ?>'">
+                    <i class="fa fa-angle-left"></i> на главную
+                </div>
+                <ul style="margin-top:18px;" class="list-unstyled chat-list">
+
+                <?php
+                $id_sender=$_SESSION['id_user']; 
+                $mysql=new mysqli('localhost','root','','InfoEdu');
+                $sql=$mysql->query("SELECT * FROM messages WHERE id_sender =$id_sender or id_recipient=$id_sender ORDER BY id DESC");
+                $res= $sql -> fetch_assoc();
+                $all_messages = [];
+                $messages =[];
+                if(count($res) > 0){
+                do{
+                    array_push($all_messages,$res);
                 }
-                $sqll=$mysql->query("SELECT * FROM user WHERE id_user=$id_user");
-                $result= $sqll -> fetch_assoc();
-                if($id_recipient != $id_user){
-                    $class = 'btn-outline-dark btn';
-                }else{
-                    $class = 'btn-dark btn';
+                while ($res= $sql -> fetch_assoc());
+            
+                $summ_keys = [];
+                for($j=0; $j<count($all_messages); $j++){
+                    if(!$summ_keys[$all_messages[$j]['id_sender']+$all_messages[$j]['id_recipient']]){
+                        $messages[] = [
+                            'id' => $all_messages[$j]['id'],
+                            'id_sender' => $all_messages[$j]['id_sender'],
+                            'id_recipient' => $all_messages[$j]['id_recipient'], 
+                            'message' => $all_messages[$j]['message'],
+                            'time' => $all_messages[$j]['time']
+                        ]; 
+                        $summ_keys[$all_messages[$j]['id_sender']+$all_messages[$j]['id_recipient']]=1;
+                    }
                 }
-        ?>
-        <div style="border: 1px solid black;"></div>
-        <button onclick="location.href='../mail/mail.php?user_id=<?php echo $id_user.'&name='.$result['name']?>'" class="<?php echo $class ?>" style="border: none;">
-            <div  style="display: grid; grid-template-columns:50px 350px;" >
-            <div>
-                <img style="border-radius:100px; width:50px;" src="../img/users/<?php echo $result['photo_link'];?>" alt="фотография профиля">
+                for($i=0;$i<count($messages);$i++){ 
+                        if($messages[$i]['id_sender'] == $_SESSION['id_user']){
+                            $id_user=$messages[$i]['id_recipient'];
+                        }else{
+                            $id_user=$messages[$i]['id_sender'];
+                        }
+                        $sqll=$mysql->query("SELECT * FROM user WHERE id_user=$id_user");
+                        $result= $sqll -> fetch_assoc();
+                        if($id_recipient != $id_user){
+                            $class = 'clearfix';
+                        }else{
+                            $class = 'clearfix active';
+                        }
+                ?>
+                    <li onclick="location.href='../mail/mail.php?user_id=<?php echo $id_user.'&name='.$result['name'].'&photo='.$result['photo_link']?>'" class="<?echo $class;?>">
+                        <img src="../img/users/<?php echo $result['photo_link'];?>" alt="avatar">
+                        <div class="about">
+                            <div class="name"><?php echo $result['last_name'].' '.$result['name'];?></div>
+                            <div class="status"> <i class="fa fa-circle offline"></i> offline </div>                                            
+                        </div>
+                    </li>
+                    <?php }
+                    }else{
+                        $_SESSION['recipient_name']='empty';
+                        $_SESSION['id_recipient']='empty';
+                    } ?>
+                </ul>
             </div>
-            <div align="left">
-                <strong style="margin-left: 5%;"><?php echo $result['last_name'].' '.$result['name'].' '.$result['middle_name'];?></strong>
-                <div style="margin-left: 6%; font-size:15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?php echo $messages[$i]['message'];?></div>
-                <div style="margin-left: 70%;font-size:10px;" class="badge-dark badge"><?php echo $messages[$i]['time'];?></div>
+            <!-- Блок чата -->
+            <div class="chat">
+            <iframe style="border:none" height="510px" width="100%" name='chatWindow' id="chatWindow" data-id='chatWindow' src='iframe.php' >Чат</iframe>
+                    <form onsubmit="this.submit(); this.reset(); return false;" data-click="clear" action='./iframe.php' method='POST' target='chatWindow'>
+                        <div class="chat-message clearfix">
+                            <div class="input-group mb-0">    
+                                <input name='message' type="text" class="form-control" placeholder="Напишите сообщение...">                                    
+                                <div class="input-group-prepend">
+                                    <button type="button"  <?php echo $dis;?> class="input-group-text"><i class="fa fa-send"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
             </div>
-            </div>
-        </button>
-        <div style="border: 1px solid black;"></div>
-        <?php }
-        }else{
-            $_SESSION['recipient_name']='empty';
-            $_SESSION['id_recipient']='empty';
-        } ?>
         </div>
     </div>
 
-    <!-- блок чата -->
-    <div style="margin-left:15px;"><br>
-        <iframe  width="570" height="480" name='chatWindow' id="chatWindow" data-id='chatWindow' src='iframe.php' >Чат</iframe>
-        <form onsubmit="this.submit(); this.reset(); return false;" data-click="clear" action='iframe.php' method='post' target='chatWindow'>
-            <input style="margin-left:1%;" type='text' name='message' size="62" placeholder="  Напишите сообщение...">
-            <button type="button" class="btn-dark" <?php echo $dis;?>>отправить</button>
-        </form>
-    </div>
-
-    <!-- блок постов -->
-    <div style="color: navy;"><br>
-    </div>
-
 </div>
-<script>
-    const updateEl = document.querySelector('.update');
-    updateEl.onclick = () => {
-        location.href="./mail.php";
-    }
-</script>
+</div>
+</div>
+</div>
 </body>
-<style>
-    .update{
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-        border: 1px solid white;
-        background:white; 
-        margin-left:2%;
-        align-content: center;
-    }
-    .update:hover{
-        background-color:black;
-        color: white;
-    }
-</style>
 </html>

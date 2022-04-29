@@ -16,7 +16,10 @@ mesEl.forEach((el,index) => {
                 const numMesEl = document.createElement('small');
                 delEl.dataset.id='delete';
                 numMesEl.dataset.id='number';
+                
                 delEl.style.position='fixed';
+                delEl.style.marginTop="80px";
+                delEl.style.padding="10px"
                 const delButEl = document.createElement('button');
                 delButEl.textContent='удалить';
                 delButEl.classList.add('btn-info');
@@ -42,7 +45,7 @@ mesEl.forEach((el,index) => {
                 }
             }else{
                 next++;
-                NumMesEl.textContent=next+' сообщение';
+                NumMesEl.textContent=next+'  сообщение';
             }
         }else{
             next--;
@@ -50,7 +53,7 @@ mesEl.forEach((el,index) => {
                 DelEl.remove();
                 next = 1;
             }
-            NumMesEl.textContent=next+' сообщение';
+            NumMesEl.textContent=next+' сообщение ';
             blockEl[index].style.background='';
             messBox.forEach((elem,index)=>{
                 if(elem === Number(el.id)){

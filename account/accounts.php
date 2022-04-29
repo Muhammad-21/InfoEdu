@@ -54,7 +54,7 @@
                         <?php }else{ ?>
                             <p class="text-muted font-size-sm"><?php echo 'Студент группы:'," Б18-504"?></p>
                       <?php } ?>
-                      <a href="../mail/mail.php?user_id=<?php echo $list['id_user'];?>&name=<?php echo $list['name'];?>" class="btn btn-primary">Написать сообщение</a>
+                      <a href="../mail/mail.php?user_id=<?php echo $list['id_user'];?>&name=<?php echo $list['name'].'&photo='.$list['photo_link'];?>" class="btn btn-primary">Написать сообщение</a>
                     </div>
                   </div>
                 </div>
