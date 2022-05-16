@@ -34,3 +34,19 @@ label:hover{
     background-color: #2aa493;
     color: white;
 }
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    border: none;
+    background:#2aa493;
+    display: none;
+    padding: 20px;
+    color: white;
+    border-radius: 100%;
+}
+
+#btn-back-to-top strong{
+    font-size: 30px;
+}

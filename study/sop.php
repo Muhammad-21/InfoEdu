@@ -9,8 +9,15 @@
     <title>СОП</title>
 </head>
 <body>
+<button
+        type="button"
+        id="btn-back-to-top"
+        >
+        <strong>&and;</strong>
+</button>
     <div class="sop">
         <div class="sop__main">
+            <h4 align="center" style="color:#2aa493">Основы автоматизированных информационных технологий</h4>
             <Form style="padding-top:20px;">
             <div>
                 <strong style="margin-left:20px">
@@ -398,5 +405,6 @@
             </Form>
         </div>
     </div>
+<script src="../js/sop.js"></script>
 </body>
 </html>
