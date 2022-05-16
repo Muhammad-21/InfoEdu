@@ -1,0 +1,41 @@
+.survey{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.survey__main{
+    border: 2px solid #2aa493;
+    border-radius: 8px;
+    background:white;
+    width: 900px;
+    padding: 30px;
+}
+body{
+    background: #e2e8f0;
+    padding: 80px;
+}
+
+table{
+    width:800px;
+    margin-left:40px;
+}
+.table_main {
+    background-color: #2aa493;
+    color: white;
+}
+
+tr{
+    text-align: center;
+}
+
+.table_item{
+    height: 80px;
+}
+
+.table_item:hover{
+    background-color: #2aa493;
+    color: white;
+    cursor: pointer;
+}
+
