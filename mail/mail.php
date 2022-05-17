@@ -49,7 +49,7 @@ if($_SESSION['id_student']){
 
                 <?php
                 $id_sender=$_SESSION['id_user']; 
-                $mysql=new mysqli('localhost','root','','InfoEdu');
+                $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
                 $sql=$mysql->query("SELECT * FROM messages WHERE id_sender =$id_sender or id_recipient=$id_sender ORDER BY id DESC");
                 $res= $sql -> fetch_assoc();
                 $all_messages = [];

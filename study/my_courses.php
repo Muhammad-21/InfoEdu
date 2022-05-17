@@ -17,7 +17,7 @@ session_start();
 <div data-course="courses">
     <h4 style="margin-top:5%; color:Navy; margin-left:15%;">Доступные курсы</h4>
     <?
-        $mysql=new mysqli('localhost','root','','InfoEdu');
+        $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
         $group_number = $_SESSION['group_number'];
         $results=$mysql->query("SELECT * From `course` JOIN `group` ON `group`.id_group=`course`.id_group WHERE `group_number`='$group_number'");
         $courses=$results->fetch_assoc();

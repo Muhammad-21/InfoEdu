@@ -8,7 +8,7 @@ if($_FILES['image']['type']!='image/jpg' && $_FILES['image']['type']!='image/jpe
     header('Location: ../teacher/teacher.php');
 }else{
     if(move_uploaded_file($_FILES['image']['tmp_name'],'./img/users/'.$name)){
-        $mysql=new mysqli('localhost','root','','InfoEdu');
+        $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
         $mysql->query("UPDATE `user` SET `photo_link`='$name' WHERE `id_user`=$user_id");
         $mysql->close();
         $_SESSION['img_status']='success';

@@ -11,7 +11,7 @@
     }else{
         $status = 0;
     }
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $results=$mysql->query("SELECT `id_group` From `group` WHERE `group_number`='$groupNumber'");
     $id=$results->fetch_assoc();
     $id_group = $id["id_group"];

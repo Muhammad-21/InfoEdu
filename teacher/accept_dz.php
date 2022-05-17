@@ -7,7 +7,7 @@
         echo "неверный балл";
         exit();
     }
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $mysql->query("UPDATE `work` SET `assessmeent`='$mark' WHERE `id_work`=$id");
     $mysql->close();
     if($type==1){

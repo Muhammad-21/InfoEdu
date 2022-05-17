@@ -7,7 +7,7 @@ if($_SESSION['id_student']){
     $path='../teacher/teacher.php';
 }
 $id_sender=$_SESSION['id_user'];
-$mysql=new mysqli('localhost','root','','InfoEdu');
+$mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 $sql=$mysql->query("SELECT * FROM messages WHERE id_sender =$id_sender or id_recipient=$id_sender GROUP BY id_sender");
 $res= $sql -> fetch_assoc();
 ?>

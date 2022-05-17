@@ -2,7 +2,7 @@
 session_start();
 $id_sender=$_SESSION['id_user'];
 $id_recipient=$_SESSION['id_recipient'];
-$mysql=new mysqli('localhost','root','','InfoEdu');
+$mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 $sql=$mysql->query("SELECT * FROM `messages` order by `id`");
 $res= $sql -> fetch_assoc();
 ?>

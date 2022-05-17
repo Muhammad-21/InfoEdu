@@ -51,7 +51,7 @@
     </div></div>
     <span style="font-size: 16px;margin-left:15%;color: Navy; ">Добавленные файлы</span><br>
     <?php 
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $result=$mysql->query("SELECT * 
     FROM material
     JOIN work on material.id_work=work.id_work

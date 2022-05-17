@@ -36,7 +36,7 @@ if($size>1048576*11){
 }
 if(move_uploaded_file($_FILES['file']['tmp_name'],'../laba/'.$name)){
     $_SESSION['file_status']=1;
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $mysql->query("INSERT INTO `work`(`work_name`, `work_type`,`assessmeent`, `comment`,`id_student`,`id_teacher`) VALUES('$text','$work_type','-5','-','84','$id_teacher')");
     $result=$mysql->query("SELECT * FROM `work` WHERE 1 order by `id_work` desc limit 1");
     $last_id= $result -> fetch_assoc();

@@ -8,10 +8,11 @@ if($_SESSION['img_status']==1){
     $err="Произошла неизвестная ошибка";
     $e=1;
 }
-$mysql=new mysqli('localhost','root','','InfoEdu');
+$mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 $res=$mysql->query("SELECT * From user WHERE user.id_user=$user_id");
 $mail=$res->fetch_assoc();
 $id_teacher = $_SESSION['id_teacher'];
+echo $id_teacher;
 $res_groups=$mysql->query("SELECT * From teaches JOIN course ON course.id_course=teaches.id_course JOIN `group` ON `group`.id_group=course.id_group WHERE id_teacher=$id_teacher group BY `group`.`id_group`");
 $groups=$res_groups->fetch_assoc();
 ?>

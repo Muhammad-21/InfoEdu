@@ -1,5 +1,5 @@
 <?php
-$mysql=new mysqli('localhost','root','','InfoEdu');
+$mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 $result=$mysql->query("SELECT user.last_name,user.name,user.middle_name,WORK.assessmeent,user.id_user
     FROM work
     JOIN student on work.id_student=student.id_student

@@ -46,7 +46,7 @@ if($id_recipient == 'empty'){
                 <div style="margin-top:80px" class="chat-history">
                     <ul class="m-b-0">
 <?php
-$mysql=new mysqli('localhost','root','','InfoEdu');
+$mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 if(isset($_POST['message']) && $_POST['message']!=''){
     $message=filter_var(trim($_POST['message']),FILTER_SANITIZE_STRING);
     $mysql=new mysqli('localhost','root','','InfoEdu');

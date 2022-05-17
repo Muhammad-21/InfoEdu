@@ -13,7 +13,7 @@
 <div data-id="us">
   <h4 style="margin-top:5%;" class="container">Заявки студентов на регистрацию | <a href="admin.php"> вернуться назад</a></h4>
         <?php 
-        $mysql=new mysqli('localhost','root','','InfoEdu');
+        $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
         $results=$mysql->query("SELECT * From `user` WHERE `status`='0' ORDER BY `last_name`");
         $us=$results->fetch_assoc();
         if(count($us) == 0){

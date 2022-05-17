@@ -5,7 +5,7 @@ header('Content-Type: text/html; charset= utf-8');
 $login=filter_var(trim($_GET['login']),FILTER_SANITIZE_STRING);
 $pass=filter_var(trim($_GET['pass']),FILTER_SANITIZE_STRING);
 //подключения к бд
-$mysql=new mysqli('localhost','root','','InfoEdu');
+$mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 
 $result=$mysql->query("SELECT * FROM `user` WHERE `login`='$login' AND `password`='$pass'");
 $user= $result -> fetch_assoc();
@@ -44,7 +44,7 @@ if(count($user) == 0){
     $_SESSION['nous'] = 1;
     $mysql->close();
     header('Location: /index.php');
-}elseif($user['id_user'] == 26){
+}elseif($user['id_user'] == 3){
     header('Location: /admin/admin.php');
 }elseif (count($teacher['id_teacher']) == 1){
 //запрос вывод всех курсов преподавателя

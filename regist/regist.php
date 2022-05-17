@@ -1,9 +1,3 @@
-<?php
-    $mysql=new mysqli('localhost','root','','InfoEdu');
-    $sql=$mysql->query("SELECT * FROM `group`");
-    $res= $sql -> fetch_assoc();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +45,10 @@
         <label for="groupNumber">Выбирите номер группы</label>
         <select id="groupNumber" name="groupNumber" class="custom-select" required>
             <option selected disabled>Номер группы</option>
-            <?php 
+            <?php
+              $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
+              $sql=$mysql->query("SELECT * FROM `group`");
+              $res= $sql -> fetch_assoc(); 
                 do{
                     echo '<option>'.$res['group_number'].'</option>';
                 }

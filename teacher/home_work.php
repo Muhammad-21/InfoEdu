@@ -21,7 +21,7 @@
 <div style="border: 3px solid Navy;margin:5%;padding:2%;"><br>
 
     <span style="font-size: 16px;margin-left:15%;color: Navy; ">Домашние задания</span><br><?php
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $result1=$mysql->query("SELECT * 
     FROM material
     JOIN work on material.id_work=work.id_work

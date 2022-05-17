@@ -27,7 +27,7 @@ require 'exit/exit.php';
 <div style="border: 3px solid Navy;margin:5%;margin-top:10%;"><br>
 <span style="font-size: 16px;margin-left:15%;color: Navy; ">Материалы для подготовки</span><br>
     <?php 
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $result=$mysql->query("SELECT * 
     FROM material
     JOIN work on material.id_work=work.id_work

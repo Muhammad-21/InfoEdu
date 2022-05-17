@@ -38,7 +38,7 @@ session_start();
     <!-- личный кабинет студентов -->
     <div data-student="students"><br>
         <?php 
-          $mysql=new mysqli('localhost','root','','InfoEdu');
+          $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
           $res=$mysql->query("SELECT * From student JOIN user on student.id_user=user.id_user");
           $list=$res->fetch_assoc();
             do{ if($list['id_user']!=25){?>

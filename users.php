@@ -20,10 +20,10 @@ $user_id=$_SESSION["id_user"];
 <div data-id="us">
         <div>
         <?php 
-        $mysql=new mysqli('localhost','root','','InfoEdu');
+        $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
         $results=$mysql->query("SELECT * From `user` WHERE `status`='1' ORDER BY `last_name`");
         $us=$results->fetch_assoc();
-            do{ if($us['id_user']!=25 && $us['id_user']!=$user_id && $us['id_user']!=26){
+            do{ if($us['id_user']!=25 && $us['id_user']!=$user_id && $us['id_user']!=3){
               $id = $us['id_user'];
               
               $co = $mysql->query("SELECT * FROM `teacher` WHERE `id_user` = '$id'");
@@ -53,7 +53,7 @@ $user_id=$_SESSION["id_user"];
                     <a href="../account/accounts.php?user_id=<?php echo $us['id_user'];?>" style="color: navy;"> <?php echo $us['last_name'].' '.$us['name'].' '.$us['middle_name']?></a><br>
                     <div class="<?php echo $color;?>" style="font-size:10px;"><?php echo $type;$type='';?></div>
                   </div>
-                  <a class="btn-lg" style="color: white;background-color:navy; box-shadow:0 0 15px #666; border-radius:100px;padding:30%;" href="../mail/mail.php?user_id=<?php echo $us['id_user'].'&name='.$us['name']?>;?>">&#9993</a>
+                  <a class="btn-lg" href="../mail/mail.php?user_id=<?php echo $us['id_user'].'&name='.$us['name']?>;?>">&#9993</a>
               </div><br>
               <?php
               }

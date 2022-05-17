@@ -1,7 +1,7 @@
 <?php
     session_start();
     $user_id=filter_var(trim($_GET['user_id']),FILTER_SANITIZE_STRING);
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $res=$mysql->query("SELECT * FROM user JOIN student on user.id_user=student.id_user WHERE user.id_user=$user_id");
     $list=$res->fetch_assoc();
     if($list==''){

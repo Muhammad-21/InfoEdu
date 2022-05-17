@@ -45,7 +45,7 @@
     }
     if(move_uploaded_file($_FILES['file']['tmp_name'],$pth.$file_name)){
         $_SESSION['file_dz_status']=1;
-        $mysql=new mysqli('localhost','root','','InfoEdu');
+        $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
         $st_id=$_SESSION['id_student'];
         $mysql->query("INSERT INTO `work`(`work_name`, `work_type`,`assessmeent`,`comment`,`id_student`,`id_teacher`) VALUES('$dz_name','дз','-1','-','$st_id','$nt')");
         $result1=$mysql->query("SELECT * FROM `work` WHERE 1 order by `id_work` desc limit 1");

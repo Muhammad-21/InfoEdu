@@ -1,5 +1,5 @@
 <? 
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     
     // получения преподавателей
     $results=$mysql->query("SELECT * From `user` JOIN `teacher` ON `teacher`.id_user=`user`.id_user");

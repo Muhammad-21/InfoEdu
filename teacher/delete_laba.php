@@ -3,7 +3,7 @@
     $link = substr($linkEl,20);
     $l=iconv("utf-8", "cp1251", $link);
     $path="../laba/".$l;
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $result=$mysql->query("SELECT * 
     FROM material 
     WHERE material.link='$link'");

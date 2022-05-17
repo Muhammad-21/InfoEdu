@@ -2,7 +2,7 @@
     session_start();
     $l=filter_var(trim($_GET['link']),FILTER_SANITIZE_STRING);
     $path="./img/users/".$l;
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
     $user_id=$_SESSION["id_user"];
     if($_SESSION['user_sex']==1){
         $link="person.jpg";

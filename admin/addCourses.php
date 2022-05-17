@@ -1,5 +1,5 @@
 <? 
-  $mysql=new mysqli('localhost','root','','InfoEdu');
+  $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
   $results=$mysql->query("SELECT * From `group`");
   $group=$results->fetch_assoc();
 ?>

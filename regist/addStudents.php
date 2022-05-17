@@ -15,7 +15,7 @@
         $sex = 0;
     }
 
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 
     ///получение id_group
     $sql=$mysql->query("SELECT * FROM `group` WHERE `group_number`='$groupNumber'");

@@ -14,7 +14,7 @@
         $sex = 0;
     }
 
-    $mysql=new mysqli('localhost','root','','InfoEdu');
+    $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 
     ///добавление преподователя
     $mysql->query("INSERT INTO `user`(`name`, `last_name`,`middle_name`,`login`,`password`,`sex`) VALUES('$name','$lastName','$middleName','$login','$password','$sex')");
