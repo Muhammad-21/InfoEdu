@@ -12,8 +12,7 @@ $mysql=new mysqli('127.0.0.1','root','','InfoEdu');
 $res=$mysql->query("SELECT * From user WHERE user.id_user=$user_id");
 $mail=$res->fetch_assoc();
 $id_teacher = $_SESSION['id_teacher'];
-echo $id_teacher;
-$res_groups=$mysql->query("SELECT * From teaches JOIN course ON course.id_course=teaches.id_course JOIN `group` ON `group`.id_group=course.id_group WHERE id_teacher=$id_teacher group BY `group`.`id_group`");
+$res_groups=$mysql->query("SELECT * From teaches JOIN course ON course.id_course=teaches.id_course JOIN `group` ON `group`.id_group=course.id_group WHERE id_teacher=$id_teacher");
 $groups=$res_groups->fetch_assoc();
 ?>
 <!DOCTYPE html>
@@ -98,7 +97,7 @@ $groups=$res_groups->fetch_assoc();
         $mysql=new mysqli('localhost','root','','InfoEdu');
         $results=$mysql->query("SELECT * From user ORDER BY last_name");
         $us=$results->fetch_assoc();
-            do{ if($us['id_user']!=25 && $us['id_user']!=$user_id){
+            do{ if($us['id_user']!=3 && $us['id_user']!=$user_id){
               $id = $us['id_user'];
               $co = $mysql->query("SELECT * FROM `teacher` WHERE `id_user` = '$id'");
               $count = $co -> fetch_assoc();
@@ -125,7 +124,7 @@ $groups=$res_groups->fetch_assoc();
                     <a href="../account/accounts.php?user_id=<?php echo $us['id_user'];?>" style="color: navy;"> <?php echo $us['last_name'].' '.$us['name'].' '.$us['middle_name']?></a><br>
                     <div class="<?php echo $color;?>" style="font-size:10px;"><?php echo $type;$type='';?></div>
                   </div>
-                  <a class="btn-lg" style="color: white;background-color:navy; box-shadow:0 0 15px #666; border-radius:100px;padding:30%;" href="../mail/mail.php?user_id=<?php echo $us['id_user'];?>">&#9993</a>
+                  <a class="btn-lg"  href="../mail/mail.php?user_id=<?php echo $us['id_user'];?>">&#9993</a>
               </div><br>
               <?php
               }
