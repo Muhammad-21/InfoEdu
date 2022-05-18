@@ -58,6 +58,15 @@
       </div>
     </div>
     <div class="form-group row">
+    <label for="semester" class="col-sm-2 col-form-label">Семестр</label>
+      <div class="col-sm-5">
+        <select id="semester" name="semester" class="custom-select" required>
+            <option selected disabled>выберите семестр</option>
+            <option>весенний</option>
+            <option>осенний</option>
+        </select>
+      </div>
+    <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
         <button type="submit" class="btn btn-dark">Добавить</button>
       </div>

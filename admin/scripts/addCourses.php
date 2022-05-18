@@ -4,7 +4,7 @@
     $groupNumber=filter_var(trim($_POST['groupNumber']),FILTER_SANITIZE_STRING);
     $description=filter_var(trim($_POST['description']),FILTER_SANITIZE_STRING);
     $elective=filter_var(trim($_POST['course-type']),FILTER_SANITIZE_STRING);
-
+    $semester=filter_var(trim($_POST['semester']),FILTER_SANITIZE_STRING);
 
     if($elective == "да"){
         $status = 1;
@@ -15,7 +15,7 @@
     $results=$mysql->query("SELECT `id_group` From `group` WHERE `group_number`='$groupNumber'");
     $id=$results->fetch_assoc();
     $id_group = $id["id_group"];
-    $mysql->query("INSERT INTO `course` (`course_name`,`description`,`elective`,`id_group`) VALUES('$courseName','$description','$status','$id_group')");
+    $mysql->query("INSERT INTO `course` (`course_name`,`description`,`elective`,`semester`,`id_group`) VALUES('$courseName','$description','$status','$semester','$id_group')");
     $mysql->close();
     header('Location: ../addCourses.php');
 ?>
