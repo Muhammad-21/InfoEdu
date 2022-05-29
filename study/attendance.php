@@ -23,7 +23,7 @@
           <h2>Индивидуальная посещаемость</h2>
 
         <div style="display:flex;padding:10px;justify-content:space-between">
-          <div>Пропущенных занятий в текущем семестре: <div style="color:red; display:inline">5</div></div>
+          <div>Пропущенных занятий в текущем семестре: <div style="color:red; display:inline">1</div></div>
           <div style="cursor:pointer;" class="inf">Информация о группе <i class="fa fa-info-circle fa-lg" style="color:#2aa493"></i></div>
         </div>
     
@@ -39,6 +39,35 @@
           <div>
             <div>Номер группы</div>
             <strong>Б18-504</strong>
+          </div>
+        </div><br><br>
+
+        <table>
+                <tr class="table_main">
+                    <th>Дисциплина</th>
+                    <th>Вид занятия</th>
+                    <th>ФИО преподавателя</th>
+                    <th>Дата занятия</th>
+                    <th>Отметка</th>
+                </tr>
+                <tr class="table_item" id="1">
+                    <td class="subject_name">База данных</td>
+                    <td>Лекция</td><td>Тихомирова Д.В.</td><td>01.05.2022</td><td>+</td><td>
+                </tr>
+                <tr class="table_item" id="2">
+                    <td>Математические модели физических процессов в ядерных энергетических установках</td>
+                    <td>Практические занятия</td><td>Загребаев А.М.</td><td>05.05.2022</td><td>-</td><td>
+                </tr>
+        </table><br><br><br><br>
+
+
+        <div>
+          <strong style="padding:0;margin:0">Легенда:</strong>
+          <div style="margin-left:20px">
+            <div><strong>+</strong> – студент присутствовал на занятии</div>
+            <div><strong>–</strong> – отсутствие без уважительной причины</div>
+            <div><strong>б</strong> – отсутствие по болезни</div>
+            <div><strong>у</strong> – отсутствие по уважительной причине</div>
           </div>
         </div>
 </div>

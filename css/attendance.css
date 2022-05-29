@@ -32,3 +32,28 @@ body{
     border-bottom: 20px solid #2aa493;
     top:-40px
 }
+
+table{
+    width:100%;
+}
+.table_main {
+    background-color: #2aa493;
+    color: white;
+}
+
+tr{
+    text-align: center;
+}
+
+.table_item{
+    height: 80px;
+}
+
+.table_item:hover{
+    background-color: #2aa49430;
+    cursor: pointer;
+}
+
+.subject_name{
+    width: 400px;
+}
