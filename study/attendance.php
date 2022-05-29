@@ -51,11 +51,11 @@
                     <th>Отметка</th>
                 </tr>
                 <tr class="table_item" id="1">
-                    <td class="subject_name">База данных</td>
+                    <td class="subject_name">Основы автоматизированных информационных технологий</td>
                     <td>Лекция</td><td>Тихомирова Д.В.</td><td>01.05.2022</td><td>+</td><td>
                 </tr>
                 <tr class="table_item" id="2">
-                    <td>Математические модели физических процессов в ядерных энергетических установках</td>
+                    <td>Математические модели физических процессов в ядерных энергетических установках (Mathematical Models of Physical Processes in Nuclear Power Plants)</td>
                     <td>Практические занятия</td><td>Загребаев А.М.</td><td>05.05.2022</td><td>-</td><td>
                 </tr>
         </table><br><br><br><br>
