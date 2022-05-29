@@ -1,12 +1,14 @@
 const descripEl = document.querySelectorAll('[data-id="descrip"]');
-        const descripBodyEl = document.querySelectorAll('[data-id="descripBody"]');
-
+const descripBodyEl = document.querySelectorAll('[data-id="descripBody"]');
+const faEl = document.querySelectorAll('.fa');
         descripEl.forEach((el,index) => {
             el.onclick = () => {
                 if(descripBodyEl[index].style.display !== "block"){
                     descripBodyEl[index].style.display="block";
+                    faEl[index].className = "fa fa-angle-up fa-lg"
                 }else{
                     descripBodyEl[index].style.display="none";
+                    faEl[index].className = "fa fa-angle-down fa-lg"
                 }
             }
         })
