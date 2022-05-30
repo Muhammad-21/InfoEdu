@@ -26,6 +26,7 @@
         <div >&mdash; <a href="addUsers.php">Добавить пользователей</a></div>
         <div >&mdash; <a href="addCourses.php">Добавить курс</a></div>
         <div >&mdash; <a href="addCourseTeach.php">Добавить курсы преподавателю</a></div>
+        <div >&mdash; <a href="addStudyPlan.php">Добавить ученый план</a></div>
     </div>
     <div style="margin-left:10%; border-left: 2px solid black;""></div>
     <div style="margin-left:10%;">

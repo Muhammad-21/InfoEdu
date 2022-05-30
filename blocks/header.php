@@ -10,7 +10,7 @@
                 Обучение <i class="fa fa-bell-o" style="color:red;"></i>
             </button>
             <ul class="button__hover dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                <li><a class="dropdown-item" href="#">Учебный план</a></li>
+                <li><a class="dropdown-item" href="../study/study_plan.php">Учебный план</a></li>
                 <li><a class="dropdown-item" href="../study/attendance.php">Индивидуальная посещаемость</a></li>
                 <li><a class="dropdown-item" href="../study/my_courses.php">Мои курсы</a></li>
                 <li><a class="dropdown-item" href="../study/survey.php">Анкетирование <i class="fa fa-bell-o" style="color:red;"></i></a></li>

@@ -56,7 +56,7 @@ session_start();
                     <div data-id="descripBody" class="descrip__body"><? if($courses['description'] !== ""){echo $courses['description'];}else{echo "Описание ещё не добавлен";} ?></div>
                 </div>
                 <div>
-                    <form method="POST" action="./scripts/joinToCourse.php">
+                    <form method="POST" action="../scripts/joinToCourse.php">
                         <input type="hidden" name="id_student" value="<? echo $id_student;?>">
                         <input type="hidden" name="id_course" value="<? echo $id_course;?>">
                         <button class="btn btn-success">записаться</button>

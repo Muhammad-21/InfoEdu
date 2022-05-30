@@ -71,6 +71,7 @@ $courses= $teaches -> fetch_assoc();
     header('Location: /teacher/teacher.php');
 } else {
     $_SESSION['group_number'] = $student_id['group_number'];
+    $_SESSION['id_group'] = $student_id['id_group'];
     $mysql->close();
     header('Location: /student.php');
 }
