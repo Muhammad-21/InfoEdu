@@ -6,36 +6,25 @@ _The platform is being implemented as part of Educational and Research Work._
 ***The platform is under development...***
 ## Some screenshots of the platform
 ![Home page](./assets/main.png)  
-<strong style="text-align: center;">Home Page</strong>  
+  
+![Home page](./assets/users_page.bmp)  
 
-![Home page](./assets/view_personal_account.png)  
-<strong style="text-align: center;">Viewing the user's personal account</strong> 
+![View page](./assets/view_personal_account.png)   
 
-![files](./assets/reg.png)  
-<strong style="text-align: center;">Registration form</strong>  
+![plan](./assets/plan.bmp)
 
+![poseshenie](./assets/pos.bmp)
 
-![files](./assets/Student.png)    
+![courses](./assets/courses.bmp) 
 
+![SOP](./assets/sop.bmp)
 
-![Users Page](./assets/users_page.png)  
-<strong style="text-align: center;">Personal account</strong>   
+![messages](./assets/message.png)   
 
-
-![courses](./assets/courses.png)  
-<strong style="text-align: center;">List of courses</strong>   
-
-
-![messages](./assets/message.png)  
-<strong style="text-align: center;">Messages page</strong>   
-
-
-![raiting](./assets/reiting.png)  
-<strong style="text-align: center;">Students raiting</strong>  
-
+![raiting](./assets/reiting.bmp)   
 
 ![files](./assets/add_files.png)  
-<strong style="text-align: center;">Uploading files to the server</strong>  
+ 
 
 
 
